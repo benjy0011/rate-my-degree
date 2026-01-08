@@ -1,6 +1,5 @@
 'use client'
 
-import { cn } from "@/lib/utils";
 import { HTMLAttributes, ReactNode } from "react"
 
 interface ShadowWrapper extends HTMLAttributes<HTMLDivElement> {
