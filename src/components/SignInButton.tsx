@@ -1,6 +1,7 @@
 'use client'
 
 import { createClient } from "@/lib/supabase/client"
+import ShadowWrapper from "./ShadowWrapper";
 
 export default function SignInButton() {
   const supabase = createClient();
@@ -20,11 +21,10 @@ export default function SignInButton() {
   }
 
   return (
-    <button
+    <ShadowWrapper
       onClick={handleSignIn}
-      className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-70s0 font-semibold"
     >
-      Sign in with Google
-    </button>
+      Get Started
+    </ShadowWrapper>
   )
 }
