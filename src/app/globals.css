@@ -217,7 +217,7 @@
   }
 
   .header-link-text-grp {
-    @apply font-bold text-gray-800 flex gap-6 items-center
+    @apply font-bold text-gray-800 flex gap-6 items-center max-lg:flex-col
   }
 
   .header-link-text {
@@ -270,5 +270,17 @@
 
   .header-right-seperator-wrapper {
     @apply h-6.5 mr-4 bg-black w-[3px]
+  }
+
+  .sign-in-text {
+    @apply truncate
+  }
+
+  .only-lg {
+    @apply max-lg:hidden
+  }
+
+  .except-lg {
+    @apply lg:hidden
   }
 }

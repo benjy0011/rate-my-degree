@@ -23,6 +23,7 @@ export default function SignInButton() {
   return (
     <ShadowWrapper
       onClick={handleSignIn}
+      className="sign-in-text"
     >
       Get Started
     </ShadowWrapper>

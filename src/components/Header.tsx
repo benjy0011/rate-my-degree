@@ -4,6 +4,7 @@ import HeaderLinkTextGroup from "./HeaderLinkTextGroup"
 import SearchIcon from "./SearchIcon"
 import { Separator } from "./ui/separator"
 import SignInButton from "./SignInButton"
+import HamburgerMenu from "./HamburgerMenu"
 
 const Header = () => {
   return (
@@ -14,12 +15,16 @@ const Header = () => {
             <Image
               src="/assets/icons/logo.svg"
               alt="Rate My Degree logo"
-              width={140}
+              width={200}
               height={32}
               className="header-logo"
             />
           </Link>
-          <HeaderLinkTextGroup />
+
+          <div className="only-lg">
+            <HeaderLinkTextGroup />
+          </div>
+          
         </div>
         
 
@@ -31,6 +36,8 @@ const Header = () => {
           </div>
 
           <SignInButton />
+
+          <HamburgerMenu />
         </div>
       </div>
     </header>
