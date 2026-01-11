@@ -5,9 +5,9 @@ const Layout = ({
   children
 } : { children: ReactNode }) => {
   return (
-    <main className="h-dvh">
+    <main className="home-main">
       <Header />
-      <div className="border-green-300 h-full flex flex-col justify-center items-center">
+      <div className="home-main-wrapper">
         {children}
       </div>
     </main>

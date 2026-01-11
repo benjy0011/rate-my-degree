@@ -23,7 +23,7 @@ const HeaderLinkTextGroup = () => {
   return (
     <div className="header-link-text-grp">
       {LINKS.map(({ text, href }, idx) => (
-        <HeaderLinkText key={`${href}-${idx}`} text={text} href={href} classname="truncate" />
+        <HeaderLinkText key={`${href}-${idx}`} text={text} href={href}  />
       ))}
     </div>
   )

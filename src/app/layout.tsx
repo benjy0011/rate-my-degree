@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka, Geist, Geist_Mono, Playpen_Sans } from "next/font/google";
+import { Fredoka, Geist, Geist_Mono, Playpen_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,6 +22,12 @@ const fredoka = Fredoka({
   subsets: ["latin"],
 })
 
+const ubuntu = Ubuntu({
+  variable: "--font-ubuntu",
+  subsets: ["latin"],
+  weight: ['300', '400', '500', '700'],
+})
+
 export const metadata: Metadata = {
   title: "Rate My Degree",
   description: "Rate My Degree helps students explore, review, and compare university degrees based on real student experiences.",
@@ -35,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playpenSans.variable} ${fredoka.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playpenSans.variable} ${fredoka.variable} ${ubuntu.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
   --font-playpen: var(--font-playpen-sans);
   --font-fredoka: var(--font-fredoka);
+  --font-ubuntu: var(--font-ubuntu);
 
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -47,7 +48,7 @@
   --color-dark-blue: var(--dark-blue);
   --color-custom-gray: var(--custom-gray);
   --color-custom-yellow: var(--custom-yellow);
-  --color-custom-beige: var(--custom-beige);
+  --color-custom-beigh: var(--custom-beigh);
   --color-custom-light-gray: var(--custom-light-gray);
   --color-custom-light-yellow: var(--custom-light-yellow);
   --color-custom-dark-green: var(--custom-dark-green);
@@ -149,7 +150,7 @@
   --custom-gray: #8a8989;
   --custom-yellow: #FFEC00;
   --custom-beigh: #F8ECCF;
-  --custom-light-gray: #F2F2F1;
+  --custom-light-gray: #a8a8a5;
   --custom-light-yellow: #FFFBCC;
   --custom-dark-green: #1A7137;
   --custom-mint-green: #DBFCE7;
@@ -183,7 +184,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 p-0 m-0 box-border font-playpen;
+    @apply border-border outline-ring/50 p-0 m-0 box-border;
   }
   body {
     @apply bg-background text-foreground;
@@ -193,11 +194,19 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-screen-2xl px-4 md:px-6 lg:px-8
+    @apply mx-auto max-w-7xl px-4 md:px-6 lg:px-8
+  }
+
+  .home-main {
+    @apply h-dvh font-playpen
+  }
+
+  .home-main-wrapper {
+    @apply h-full flex flex-col justify-center items-center
   }
 
   .header {
-    @apply z-50 h-[70px] bg-background opacity-80 absolute top-0 left-0 right-0 border-b-2 border-black max-w-dvw;
+    @apply z-50 h-[70px] bg-background/90 absolute top-0 left-0 right-0 border-b-2 border-black max-w-dvw;
   }
 
   .header-wrapper {
@@ -217,11 +226,11 @@
   }
 
   .header-link-text-grp {
-    @apply font-bold text-gray-800 flex gap-6 items-center max-lg:flex-col
+    @apply font-bold text-gray-800 flex gap-6 max-lg:gap-3 items-center max-lg:flex-col
   }
 
   .header-link-text {
-    @apply relative after:content-[''] after:absolute after:left-0 after:-bottom-2 after:bg-current after:h-[3px] after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-400 hover:after:scale-x-100 cursor-pointer
+    @apply lg:relative after:content-[''] lg:after:absolute lg:after:left-0 lg:after:-bottom-2 lg:after:bg-current lg:after:h-[3px] lg:after:w-full lg:after:scale-x-0 lg:after:origin-left lg:after:transition-transform lg:after:duration-400 lg:hover:after:scale-x-100 max-lg:hover:bg-custom-beigh cursor-pointer max-lg:py-2 max-lg:px-4 max-lg:w-full max-lg:rounded-md
   }
 
   .header-left {
@@ -252,18 +261,6 @@
     @apply flex gap-4 items-center
   }
 
-  .shadow-wrapper {
-    @apply w-fit h-fit bg-black
-  }
-
-  .shadow-wrapper-content {
-    @apply -translate-x-1 -translate-y-1 bg-primary text-white px-3 py-1 border-3 border-black font-fredoka font-semibold
-  }
-
-  .shadow-wrapper-func {
-    @apply cursor-pointer active:translate-0 transition-transform duration-200
-  }
-
   .header-icons-grp {
     @apply flex gap-2 border-r-2 border-black
   }
@@ -282,5 +279,37 @@
 
   .except-lg {
     @apply lg:hidden
+  }
+
+  .side-drawer {
+    @apply p-5
+  }
+
+  .hero {
+    @apply w-full h-full flex items-center justify-center
+  }
+
+  .hero-left {
+    @apply flex flex-col gap-8 max-lg:items-center max-lg:w-fit
+  }
+
+  .hero-right {
+    @apply max-lg:hidden
+  }
+
+  .hero-title {
+    @apply font-ubuntu font-extrabold text-6xl max-lg:text-center
+  }
+
+  .hero-title-wrapper {
+    @apply mt-6 max-lg:mt-3 max-lg:mb-2 rotate-2
+  }
+
+  .hero-title-highlight-text {
+    @apply my-0 border-4 border-black text-primary px-3 bg-white
+  }
+
+  .hero-description {
+    @apply font-ubuntu font-medium text-gray-600 w-[70%] text-lg max-lg:text-center
   }
 }
