@@ -1,6 +1,9 @@
-import { Search } from "lucide-react"
 import ShadowWrapper from "./ShadowWrapper"
 import Image from "next/image"
+import FiveStars from "./FiveStars"
+import HangingWrapper from "./HangingWrapper"
+import BounceWrapper from "./BounceWrapper"
+import HeroSearchBar from "./HeroSearchBar"
 
 const Hero = () => {
   return (
@@ -24,26 +27,25 @@ const Hero = () => {
           className="bg-white text-black flex"
           // wrapperClassName="w-full"
         >
-          <div className="flex gap-2 items-center p-1">
-            <Search size="40px" className="text-gray-600" />
-            <input className="focus-visible:outline-none w-full" placeholder="Search degrees, universities, locations ..." />
-            <ShadowWrapper className="px-8 py-2" wrapperClassName="ml-2">
-              Search
-            </ShadowWrapper>
-          </div>
-          
+          <HeroSearchBar />
         </ShadowWrapper>
       </div>
 
-      <div className="hero-right">
-        <ShadowWrapper className="bg-white">
-          <Image 
-            src="/assets/images/hero-illustration.png"
-            width={798}
-            height={542}
-            alt="Rate My Degree"
-          />
-        </ShadowWrapper>
+      <div className="hero-right relative">
+        <BounceWrapper>
+          <FiveStars className="absolute -top-12 -right-10" />
+        </BounceWrapper>
+
+        <HangingWrapper>
+          <ShadowWrapper className="bg-white" shadowDepth={2}>
+            <Image 
+              src="/assets/images/hero-illustration.png"
+              width={798}
+              height={542}
+              alt="Rate My Degree"
+            />
+          </ShadowWrapper>
+        </HangingWrapper>
       </div>
       
     </section>
