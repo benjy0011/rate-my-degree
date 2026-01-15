@@ -35,7 +35,9 @@ const Header = () => {
             <Separator orientation="vertical" className="bg-black" />
           </div>
 
-          <SignInButton />
+          <div className="only-lg">
+            <SignInButton />
+          </div>
 
           <HamburgerMenu />
         </div>

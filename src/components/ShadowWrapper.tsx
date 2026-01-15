@@ -22,11 +22,13 @@ const ShadowWrapper = ({
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleSetActive = (event: React.MouseEvent<HTMLDivElement>) => {
+    if(!onClick) return;
     event.stopPropagation();
     setIsActive(true)
   };
 
   const handleSetInactive = (event: React.MouseEvent<HTMLDivElement>) => {
+    if(!onClick) return;
     event.stopPropagation();
     setIsActive(false)
   };

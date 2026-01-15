@@ -31,9 +31,9 @@ const Hero = () => {
         </ShadowWrapper>
       </div>
 
-      <div className="hero-right relative">
+      <div className="hero-right">
         <BounceWrapper>
-          <FiveStars className="absolute -top-12 -right-10" />
+          <FiveStars className="hero-five-stars-card" />
         </BounceWrapper>
 
         <HangingWrapper>

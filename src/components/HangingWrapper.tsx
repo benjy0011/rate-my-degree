@@ -24,7 +24,9 @@ const HangingWrapper = ({ children }: { children: React.ReactNode }) => {
     }
 
     if (angle.current === 0) {
-      if (rafId.current) cancelAnimationFrame(rafId.current)
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+      rafId.current = null;
+      return;
     } else {
       rafId.current = requestAnimationFrame(animate)
     }
