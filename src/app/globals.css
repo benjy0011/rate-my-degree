@@ -105,11 +105,13 @@
   --custom-gray: #656565;
   --custom-yellow: #FFEC00;
   --custom-beigh: #ecdfbf;
-  --custom-light-gray: #F2F2F1;
+  --custom-light-gray: #ebe9e5;
   --custom-light-yellow: #FFFBCC;
   --custom-dark-green: #1A7137;
   --custom-mint-green: #DBFCE7;
   --custom-green: #07AB5B;
+
+  --navbar-height: 70px;
 }
 
 .dark {
@@ -160,12 +162,12 @@
 /* === CUSTOM COLOR THEME === */
 @theme {
   /* Extended Gray Scale */
-  --color-gray-900: #050505;
+  /* --color-gray-900: #050505;
   --color-gray-800: #141414;
   --color-gray-700: #212328;
   --color-gray-600: #30333A;
   --color-gray-500: #9095A1;
-  --color-gray-400: #CCDADC;
+  --color-gray-400: #CCDADC; */
 
   /* Vibrant Colors */
   --color-blue-600: #5862FF;
@@ -198,19 +200,19 @@
   }
 
   .home-main {
-    @apply h-dvh font-playpen
+    @apply min-h-dvh font-playpen
   }
 
   .home-main-wrapper {
-    @apply h-full flex flex-col justify-center items-center
+    @apply min-h-dvh flex flex-col justify-center items-center
   }
 
   .header {
-    @apply z-50 h-[70px] bg-background/90 absolute top-0 left-0 right-0 border-b-2 border-black max-w-dvw;
+    @apply z-50 h-(--navbar-height) bg-background/90 sticky top-0 left-0 right-0 border-b-2 border-black max-w-dvw;
   }
 
   .header-wrapper {
-    @apply flex justify-between items-center px-6 py-4 text-primary max-w-7xl;
+    @apply flex h-full justify-between items-center px-6 py-4 text-primary max-w-7xl;
   }
 
   .header-logo {
@@ -226,15 +228,15 @@
   }
 
   .header-link-text-grp {
-    @apply font-bold text-gray-800 flex gap-6 max-lg:gap-3 items-center max-lg:flex-col
+    @apply font-bold text-gray-800 flex gap-6 max-lg:gap-3 items-center max-lg:flex-col p-3
   }
 
   .header-link-text {
-    @apply lg:relative after:content-[''] lg:after:absolute lg:after:left-0 lg:after:-bottom-2 lg:after:bg-current lg:after:h-[3px] lg:after:w-full lg:after:scale-x-0 lg:after:origin-left lg:after:transition-transform lg:after:duration-400 lg:hover:after:scale-x-100 max-lg:hover:bg-custom-beigh cursor-pointer max-lg:py-2 max-lg:px-4 max-lg:w-full max-lg:rounded-md
+    @apply lg:relative after:content-[''] lg:after:absolute lg:after:left-0 lg:after:-bottom-2 lg:after:bg-current lg:after:h-[3px] lg:after:w-full lg:after:scale-x-0 lg:after:origin-left lg:after:transition-transform lg:after:duration-400 lg:hover:after:scale-x-100 max-lg:hover:bg-custom-beigh cursor-pointer max-lg:py-2 max-lg:px-4 max-lg:w-full max-lg:rounded-md max-lg:text-center
   }
 
   .header-left {
-    @apply flex gap-10
+    @apply flex gap-10 items-center
   }
 
   .header-search {
@@ -258,7 +260,7 @@
   }
 
   .header-right {
-    @apply flex gap-4 items-center
+    @apply flex max-lg:gap-0 gap-4 items-center
   }
 
   .header-icons-grp {
@@ -273,6 +275,18 @@
     @apply truncate
   }
 
+  .side-drawer {
+    @apply lg:hidden
+  }
+
+  .side-drawer-sign-in-wrapper {
+    @apply flex flex-1 items-end justify-center p-4
+  }
+
+  .side-drawer-sign-in {
+    @apply border-t-2 border-gray-300 pt-4 w-full flex justify-center
+  }
+
   .only-lg {
     @apply max-lg:hidden
   }
@@ -281,12 +295,8 @@
     @apply lg:hidden
   }
 
-  .side-drawer {
-    @apply p-5
-  }
-
   .hero {
-    @apply w-full h-full flex items-center justify-center
+    @apply w-full h-dvh -mt-(--navbar-height) flex items-center justify-center min-h-fit max-lg:pb-10 max-lg:pt-[calc(var(--navbar-height)+15px)]
   }
 
   .hero-left {
@@ -294,11 +304,11 @@
   }
 
   .hero-right {
-    @apply max-lg:hidden
+    @apply max-lg:hidden relative pr-10
   }
 
   .hero-title {
-    @apply font-ubuntu font-extrabold text-6xl max-lg:text-center
+    @apply font-ubuntu font-extrabold text-5xl lg:text-6xl max-lg:text-center
   }
 
   .hero-title-wrapper {
@@ -310,6 +320,34 @@
   }
 
   .hero-description {
-    @apply font-ubuntu font-medium text-gray-600 w-[70%] text-lg max-lg:text-center
+    @apply font-ubuntu font-medium text-gray-600 w-[70%] lg:text-lg max-lg:text-justify
+  }
+
+  .hero-five-stars-card {
+    @apply absolute -top-12 -right-10
+  }
+
+  .intro {
+    @apply w-full bg-custom-light-gray border-y-2 border-black h-dvh min-h-fit py-10
+  }
+
+  .intro-wrapper {
+    @apply container h-full flex flex-col justify-center items-center gap-7
+  }
+
+  .h4 {
+    @apply font-bold text-4xl
+  }
+  
+  .grayed-text {
+    @apply text-gray-600
+  }
+
+  .intro-description {
+    @apply text-lg font-medium text-center
+  }
+
+  .intro-cards {
+    @apply flex flex-wrap justify-center items-center gap-8 w-full mt-8
   }
 }
