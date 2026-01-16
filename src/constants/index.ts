@@ -24,3 +24,6 @@ export const INTROS: IntroCardProps[] = [
     description: "Rate and review degrees on curriculum quality, teaching, facilities, and value.",
   }
 ]
+
+
+export const CATEGORIES_DISPLAY_COUNT = 4;
