@@ -10,21 +10,24 @@ const ExploreCategories = () => {
   return (
     <section id="categories" className="categories">
 
-      <div className="flex max-lg:flex-col w-full justify-between gap-6 max-lg:items-center">
-        <h4 className="h4 font-ubuntu max-lg:text-center">Explore by Category</h4>
+      <div className="categories-wrapper">
+        <div className="flex max-lg:flex-col w-full justify-between gap-6 max-lg:items-center">
+          <h4 className="h4 font-ubuntu max-lg:text-center">Explore by Category</h4>
 
-        <ViewCategoryButton />
+          <ViewCategoryButton />
+        </div>
+
+        <Suspense
+          fallback={
+            <div className="cards-wrapper">
+              {Array.from({ length: CATEGORIES_DISPLAY_COUNT }).map((c, i) => (<Skeleton key={`${c}-${i}`} className="category-card-size bg-gray-200" />))}
+            </div>
+          }
+        >
+          <Categories />
+        </Suspense>
       </div>
 
-      <Suspense
-        fallback={
-          <div className="cards-wrapper">
-            {Array.from({ length: CATEGORIES_DISPLAY_COUNT }).map((c, i) => (<Skeleton key={`${c}-${i}`} className="category-card-size bg-gray-200" />))}
-          </div>
-        }
-      >
-        <Categories />
-      </Suspense>
     </section>
   )
 }

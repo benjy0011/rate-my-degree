@@ -328,7 +328,7 @@
   }
 
   .intro {
-    @apply w-full bg-custom-light-gray border-y-2 border-black h-dvh min-h-fit py-10
+    @apply w-full bg-white border-y-2 border-black h-dvh min-h-fit py-10
   }
 
   .intro-wrapper {
@@ -375,7 +375,11 @@
     @apply bg-white text-black
   }
 
-  .categories {
-    @apply min-h-fit h-dvh flex flex-col justify-center items-center gap-4 py-10 px-5
+  .categories{
+    @apply bg-custom-light-gray flex flex-col justify-center items-center min-h-fit h-dvh w-full
+  }
+
+  .categories-wrapper {
+    @apply flex flex-col justify-center items-center gap-5 px-4 py-15
   }
 }
