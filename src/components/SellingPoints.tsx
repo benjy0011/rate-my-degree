@@ -9,7 +9,7 @@ const SellingPoints = () => {
 
         <p className="intro-description grayed-text">Real reviews from real students. Make informed decisions about your degree.</p>
 
-        <div className="intro-cards">
+        <div className="cards-wrapper">
           {INTROS.map((intro, index) => (
             <IntroCard key={`${intro.title}-${index}`} {...intro} />
           ))}
