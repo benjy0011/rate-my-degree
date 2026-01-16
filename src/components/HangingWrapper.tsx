@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useRef } from "react"
+import { CSSProperties, useEffect, useRef } from "react"
 
-const HangingWrapper = ({ children }: { children: React.ReactNode }) => {
+const HangingWrapper = ({ children, style = {} }: { children: React.ReactNode, style?: CSSProperties }) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const angle = useRef(0)
@@ -50,6 +50,7 @@ const HangingWrapper = ({ children }: { children: React.ReactNode }) => {
       style={{
         transformOrigin: "top center",
         willChange: "transform",
+        ...style
       }}
     >
       {children}

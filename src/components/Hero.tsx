@@ -36,7 +36,7 @@ const Hero = () => {
           <FiveStars className="hero-five-stars-card" />
         </BounceWrapper>
 
-        <HangingWrapper>
+        <HangingWrapper style={{ boxShadow: "rgba(234, 179, 8, 0.22) 12px 18px 60px 0px, rgba(234, 179, 8, 0.12) 4px 6px 20px 0px" }}>
           <ShadowWrapper className="bg-white" shadowDepth={2}>
             <Image 
               src="/assets/images/hero-illustration.png"
