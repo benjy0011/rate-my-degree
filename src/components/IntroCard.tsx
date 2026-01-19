@@ -21,7 +21,7 @@ const IntroCard = ({
   return (
     <ShadowWrapper 
       className={
-        cn("flex flex-col gap-2 p-6 max-lg:w-80 w-100 bg-white font-fredoka hover:-translate-y-2", className)
+        cn("flex flex-col items-start gap-2 p-6 max-lg:w-80 w-100 bg-white font-fredoka hover:-translate-y-2", className)
       }
       wrapperClassName="transition-all hover:-translate-y-1 group"
     >

@@ -92,7 +92,7 @@ const ShadowWrapper = ({
       >
         {children}
 
-        <Spinner className={cn("absolute left-1.5 transition-all opacity-0", showLoader && "opacity-100")} />
+        <Spinner className={cn("absolute left-1.5 transition-all duration-300 opacity-0", showLoader && "opacity-100")} />
 
       </div>
     </div>
