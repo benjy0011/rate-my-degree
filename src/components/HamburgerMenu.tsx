@@ -8,8 +8,16 @@ import { DialogTitle } from "@radix-ui/react-dialog"
 import useScreenSize from "@/hooks/useScreenSize"
 import { useEffect, useState } from "react"
 import SignInButton from "./SignInButton"
+import AvatarButton, { AvatarButtonProps } from "./AvatarButton"
 
-const HamburgerMenu = () => {
+interface HamburgerMenuProps extends AvatarButtonProps {
+  loggedIn?: boolean,
+}
+
+const HamburgerMenu = ({
+  loggedIn = false,
+  ...res
+} : HamburgerMenuProps) => {
   const { isLargeScreen } = useScreenSize();
 
   const [open, setOpen] = useState<boolean>(false);
@@ -51,7 +59,10 @@ const HamburgerMenu = () => {
         
         <div className="side-drawer-sign-in-wrapper">
           <div className="side-drawer-sign-in">
-            <SignInButton />
+            {loggedIn
+              ? <AvatarButton {...res} />
+              : <SignInButton />
+            }
           </div>
         </div>
       </DrawerContent>

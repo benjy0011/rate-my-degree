@@ -6,7 +6,7 @@ import { Separator } from "./ui/separator"
 import SignInButton from "./SignInButton"
 import HamburgerMenu from "./HamburgerMenu"
 import { createClient } from "@/lib/supabase/server"
-import AvatarButton from "./AvatarButton"
+import AvatarButton, { AvatarButtonProps } from "./AvatarButton"
 
 const Header = async () => {
   const supabase = createClient();
@@ -17,6 +17,12 @@ const Header = async () => {
     email = "",
     avatar_url = "",
   } = user?.user_metadata ?? {};
+
+  const avatarBtnProps: AvatarButtonProps = {
+    email: email,
+    name: full_name,
+    src: avatar_url,
+  }
 
   return (
     <header className="header">
@@ -49,11 +55,11 @@ const Header = async () => {
           <div className="only-lg">
             {!user
               ? <SignInButton />
-              : <AvatarButton src={avatar_url} name={full_name} email={email} />
+              : <AvatarButton {...avatarBtnProps} />
             }
           </div>
 
-          <HamburgerMenu />
+          <HamburgerMenu loggedIn={!!user} {...avatarBtnProps} />
         </div>
       </div>
     </header>
