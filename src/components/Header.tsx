@@ -5,8 +5,19 @@ import SearchIcon from "./SearchIcon"
 import { Separator } from "./ui/separator"
 import SignInButton from "./SignInButton"
 import HamburgerMenu from "./HamburgerMenu"
+import { createClient } from "@/lib/supabase/server"
+import AvatarButton from "./AvatarButton"
 
-const Header = () => {
+const Header = async () => {
+  const supabase = createClient();
+
+  const { user } = (await (await supabase).auth.getUser()).data;
+  const {
+    full_name = "",
+    email = "",
+    avatar_url = "",
+  } = user?.user_metadata ?? {};
+
   return (
     <header className="header">
       <div className="container header-wrapper">
@@ -36,7 +47,10 @@ const Header = () => {
           </div>
 
           <div className="only-lg">
-            <SignInButton />
+            {!user
+              ? <SignInButton />
+              : <AvatarButton src={avatar_url} name={full_name} email={email} />
+            }
           </div>
 
           <HamburgerMenu />
