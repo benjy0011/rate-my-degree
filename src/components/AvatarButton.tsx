@@ -42,7 +42,7 @@ const AvatarButton = ({
         className={
           cn(
             "transition-colors duration-500 hover:cursor-pointer",
-            "lg:border-2 lg:border-transparent lg:hover:border-gray-400",
+            "lg:border-2 lg:border-transparent lg:hover:border-gray-400 lg:rounded-full",
             "max-lg:p-2 max-lg:rounded-lg max-lg:hover:bg-custom-beigh"
           )
         }
