@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { memo } from "react"
 
 export interface AvatarButtonProps {
   src?: string,
@@ -49,7 +50,14 @@ const AvatarButton = ({
       >
         <div className="flex gap-4 items-center">
           <Avatar>
-            <AvatarImage src={src} alt="profile-pic" width={250} height={250} />
+            <AvatarImage
+              src={src}
+              alt="profile-pic"
+              width={250}
+              height={250}
+              onError={(e) => {
+                e.currentTarget.src = "/assets/icons/santa_claus.svg"
+            }} />
             <AvatarFallback className="border-custom-light-gray border-2">
               {!!src
                 ? <Skeleton className="size-7 rounded-full bg-gray-300" />
@@ -85,4 +93,4 @@ const AvatarButton = ({
     </DropdownMenu>
   )
 }
-export default AvatarButton
+export default memo( AvatarButton )
