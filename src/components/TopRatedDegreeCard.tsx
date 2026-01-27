@@ -94,7 +94,7 @@ const TopRatedDegreeCard = ({
 
           <p>{view_count} views</p>
 
-          <p>{duration} years</p>
+          <p className="flex-1 text-end">{duration} years</p>
         </div>
       </div>
 
