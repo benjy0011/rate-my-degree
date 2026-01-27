@@ -13,6 +13,7 @@ const ViewCategoryButton = () => {
   return (
     <ShadowWrapper
       className="view-category-button"
+      wrapperClassName="h-fit"
       onClick={navigateToCategoriesPage}
     >
       View All Categories
