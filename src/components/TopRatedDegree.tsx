@@ -1,7 +1,5 @@
 import { Suspense } from "react"
 import TopRatedDegreeCards from "./TopRatedDegreeCards"
-import Link from "next/link"
-import ShadowWrapper from "./ShadowWrapper"
 import ExploreAllDegreesButton from "./ExploreAllDegreesButton"
 
 const TopRatedDegree = () => {
