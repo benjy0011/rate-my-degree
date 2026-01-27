@@ -92,7 +92,7 @@ const TopRatedDegreeCard = ({
         <div className="top-rated-degree-card-footer">
           <p>{review_count} reviews</p>
 
-          <p>{view_count} view</p>
+          <p>{view_count} views</p>
 
           <p>{duration} years</p>
         </div>
