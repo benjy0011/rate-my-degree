@@ -414,6 +414,10 @@
     @apply flex flex-wrap gap-10 justify-center items-stretch
   }
 
+  .top-rated-degree-rating-card {
+    @apply border-2 border-black absolute bg-yellow-300 font-semibold text-black py-1 px-3 rotate-6 -right-6 -top-4 hover:rotate-0 transition-transform duration-300
+  }
+
   #hero,
   #intro,
   #categories,

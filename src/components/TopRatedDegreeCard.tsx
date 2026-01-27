@@ -98,7 +98,8 @@ const TopRatedDegreeCard = ({
         </div>
       </div>
 
-      <div>
+      <div className="top-rated-degree-rating-card">
+        {overall_rating.toFixed(1)}/5.0
       </div>
     </ShadowWrapper>
   )
