@@ -336,7 +336,7 @@
   }
 
   .h4 {
-    @apply font-bold text-4xl
+    @apply font-bold text-4xl max-md:text-3xl
   }
   
   .grayed-text {
@@ -385,5 +385,29 @@
 
   .top-rated-degree {
     @apply h-dvh min-h-fit border-y-2 border-black flex items-center justify-center w-full
+  }
+
+  .top-rated-degree-card {
+    @apply bg-white text-gray-500 font-medium text-[15px] lg:w-xl md:w-lg max-md:w-[80vw] flex flex-col h-full flex-1
+  }
+
+  .top-rated-degree-card-wrapper {
+    @apply flex flex-col relative
+  }
+
+  .top-rated-degree-card-content {
+    @apply flex flex-col gap-2 font-fredoka h-full w-full flex-1 p-2
+  }
+
+  .top-rated-degree-card-header {
+    @apply flex flex-col gap-2 flex-1
+  }
+
+  .top-rated-degree-card-footer {
+    @apply flex gap-3 border-t-2 border-black my-2 pt-2 text-sm
+  }
+
+  .top-rated-degree-cards-wrapper {
+    @apply flex flex-wrap gap-10 justify-center items-stretch
   }
 }
