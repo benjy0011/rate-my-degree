@@ -65,7 +65,7 @@ const ShadowWrapper = ({
       onMouseUp={handleSetInactive}
       onMouseLeave={handleSetInactive}
       className={cn(
-        "w-fit h-fit bg-black",
+        "w-fit bg-black",
         isLoadingOrDisabled && "bg-gray-500",
         wrapperClassName
       )}
