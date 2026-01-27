@@ -189,7 +189,10 @@
     @apply border-border outline-ring/50 p-0 m-0 box-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-y-scroll;
+  }
+  html {
+    @apply snap-y snap-proximity;
   }
 }
 
@@ -409,5 +412,12 @@
 
   .top-rated-degree-cards-wrapper {
     @apply flex flex-wrap gap-10 justify-center items-stretch
+  }
+
+  #hero,
+  #intro,
+  #categories,
+  #top-rated-degree {
+    @apply snap-start snap-always
   }
 }
