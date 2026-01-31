@@ -3,16 +3,19 @@
 import { useRouter } from "next/navigation"
 import ShadowWrapper from "./ShadowWrapper"
 
-const ExploreAllDegreesButton = () => {
+const RedirectButton = ({
+  path,
+  text,
+} : { path: string, text: string }) => {
   const route = useRouter();
 
   return (
     <ShadowWrapper
-      onClick={() => { route.push('/degrees') }}
+      onClick={() => { route.push(path) }}
       className="py-2 px-4"
     >
-      Explore All Degrees
+      {text}
     </ShadowWrapper>
   )
 }
-export default ExploreAllDegreesButton
+export default RedirectButton
