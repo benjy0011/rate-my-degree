@@ -1,8 +1,8 @@
-import ShadowWrapper from "./ShadowWrapper"
+import ShadowWrapper from "../../ShadowWrapper"
 import Image from "next/image"
 import FiveStars from "./FiveStars"
-import HangingWrapper from "./HangingWrapper"
-import BounceWrapper from "./BounceWrapper"
+import HangingWrapper from "../../HangingWrapper"
+import BounceWrapper from "../../BounceWrapper"
 import HeroSearchBar from "./HeroSearchBar"
 
 const Hero = () => {

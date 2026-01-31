@@ -1,4 +1,4 @@
-import Header from "@/components/Header"
+import Header from "@/components/Navbar/Header"
 import { ReactNode } from "react"
 
 const Layout = ({

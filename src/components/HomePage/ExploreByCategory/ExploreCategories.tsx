@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import Categories from "./Categories"
-import { Skeleton } from "./ui/skeleton"
+import { Skeleton } from "../../ui/skeleton"
 import { CATEGORIES_DISPLAY_COUNT } from "@/constants"
 import ViewCategoryButton from "./ViewCategoryButton"
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ShadowWrapper from "./ShadowWrapper"
+import ShadowWrapper from "../../ShadowWrapper"
 
 interface CategoryCardProps {
   src: string;

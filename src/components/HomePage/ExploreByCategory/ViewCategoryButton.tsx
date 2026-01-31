@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation"
-import ShadowWrapper from "./ShadowWrapper"
+import ShadowWrapper from "../../ShadowWrapper"
 
 const ViewCategoryButton = () => {
   const router = useRouter();

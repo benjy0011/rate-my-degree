@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import Rating from "./Rating";
-import ShadowWrapper from "./ShadowWrapper"
+import Rating from "../../Rating";
+import ShadowWrapper from "../../ShadowWrapper"
 import { ThumbsUp } from "lucide-react";
 
 interface ReviewCardProps {

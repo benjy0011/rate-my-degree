@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import TopRatedDegreeCards, { TOP_RATED_DEGREE_COUNT } from "./TopRatedDegreeCards"
-import ExploreAllDegreesButton from "./RedirectButton"
-import { Skeleton } from "./ui/skeleton"
+import ExploreAllDegreesButton from "../../RedirectButton"
+import { Skeleton } from "../../ui/skeleton"
 
 const TopRatedDegree = () => {
   return (

@@ -1,9 +1,9 @@
-import Categories from "@/components/Categories"
-import ExploreCategories from "@/components/ExploreCategories"
-import Hero from "@/components/Hero"
-import RecentReviews from "@/components/RecentReviews"
-import SellingPoints from "@/components/SellingPoints"
-import TopRatedDegree from "@/components/TopRatedDegree"
+import Categories from "@/components/HomePage/ExploreByCategory/Categories"
+import ExploreCategories from "@/components/HomePage/ExploreByCategory/ExploreCategories"
+import Hero from "@/components/HomePage/Hero/Hero"
+import RecentReviews from "@/components/HomePage/RecentReviews/RecentReviews"
+import SellingPoints from "@/components/HomePage/Intro/SellingPoints"
+import TopRatedDegree from "@/components/HomePage/TopRatedDegree/TopRatedDegree"
 
 export default function Home() {
   return (

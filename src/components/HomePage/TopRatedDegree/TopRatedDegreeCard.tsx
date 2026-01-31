@@ -1,5 +1,5 @@
-import Rating from "./Rating"
-import ShadowWrapper from "./ShadowWrapper"
+import Rating from "../../Rating"
+import ShadowWrapper from "../../ShadowWrapper"
 
 interface TopRatedDegreeCardProps {
   name: string

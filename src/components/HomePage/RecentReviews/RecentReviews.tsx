@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import ReviewCards, { REVIEWS_COUNT } from "./ReviewCards"
-import { Skeleton } from "./ui/skeleton"
-import RedirectButton from "./RedirectButton"
+import { Skeleton } from "../../ui/skeleton"
+import RedirectButton from "../../RedirectButton"
 
 const RecentReviews = () => {
   return (

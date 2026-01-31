@@ -1,7 +1,7 @@
 'use client'
 
 import { createClient } from "@/lib/supabase/client"
-import ShadowWrapper from "./ShadowWrapper";
+import ShadowWrapper from "../ShadowWrapper";
 import { useState } from "react";
 
 export default function SignInButton() {

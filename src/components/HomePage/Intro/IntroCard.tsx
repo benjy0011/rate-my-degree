@@ -1,5 +1,5 @@
 import { ForwardRefExoticComponent, RefAttributes } from "react"
-import ShadowWrapper from "./ShadowWrapper"
+import ShadowWrapper from "../../ShadowWrapper"
 import { LucideProps } from "lucide-react"
 import { cn } from "@/lib/utils"
 

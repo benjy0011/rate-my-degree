@@ -1,8 +1,8 @@
 'use client'
 
 import { Menu } from "lucide-react"
-import { Button } from "./ui/button"
-import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer"
+import { Button } from "../ui/button"
+import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer"
 import HeaderLinkTextGroup from "./HeaderLinkTextGroup"
 import { DialogTitle } from "@radix-ui/react-dialog"
 import useScreenSize from "@/hooks/useScreenSize"

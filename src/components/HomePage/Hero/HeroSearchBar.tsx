@@ -1,7 +1,7 @@
 'use client';
 
 import { Search } from "lucide-react"
-import ShadowWrapper from "./ShadowWrapper"
+import ShadowWrapper from "../../ShadowWrapper"
 import { cn } from "@/lib/utils"
 import { useState } from "react";
 

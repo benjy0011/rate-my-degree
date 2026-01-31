@@ -1,5 +1,5 @@
 import { Star } from "lucide-react"
-import ShadowWrapper from "./ShadowWrapper"
+import ShadowWrapper from "../../ShadowWrapper"
 
 const FiveStars = ({ className = "" } : { className?: string }) => {
   return (

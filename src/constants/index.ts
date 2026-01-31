@@ -1,4 +1,4 @@
-import { IntroCardProps } from "@/components/IntroCard";
+import { IntroCardProps } from "@/components/HomePage/Intro/IntroCard";
 import { Briefcase, MessageSquare, TrendingUp } from "lucide-react";
 
 export const INTROS: IntroCardProps[] = [
