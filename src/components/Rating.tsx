@@ -24,7 +24,7 @@ const Rating = ({
   precision = 1,
   size = 24,
   emptyIcon = <Star stroke="#bbb" />,
-  icon = <Star stroke="#faaf00" fill="#faaf00" />,
+  icon = <Star stroke="#ffde00" fill="#ffde00" />,
   onChange,
 } : RatingProps ) => {
   const [ hoverValue, setHoverValue ] = useState<number | null>(null);

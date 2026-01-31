@@ -192,7 +192,7 @@
     @apply bg-background text-foreground overflow-y-scroll;
   }
   html {
-    @apply snap-y snap-proximity;
+    /* @apply snap-y snap-center; */
   }
 }
 
@@ -390,8 +390,13 @@
     @apply h-dvh min-h-fit border-y-2 border-black flex items-center justify-center w-full
   }
 
-  .top-rated-degree-card {
+  .top-rated-degree-card,
+  .homepage-card {
     @apply bg-white text-gray-500 font-medium text-[15px] lg:w-xl md:w-lg max-md:w-[80vw] flex flex-col h-full flex-1
+  }
+
+  .home-card-loading {
+    @apply lg:w-xl md:w-lg max-md:w-[80vw] h-80 bg-gray-200
   }
 
   .top-rated-degree-card-wrapper {
@@ -410,7 +415,8 @@
     @apply flex gap-3 border-t-2 border-black my-2 pt-2 text-sm
   }
 
-  .top-rated-degree-cards-wrapper {
+  .top-rated-degree-cards-wrapper,
+  .home-cards-wrapper {
     @apply flex flex-wrap gap-10 justify-center items-stretch
   }
 
@@ -418,10 +424,19 @@
     @apply border-2 border-black absolute bg-yellow-300 font-semibold text-black py-1 px-3 rotate-6 -right-6 -top-4 hover:rotate-0 transition-transform duration-300
   }
 
+  .recent-reviews {
+    @apply bg-custom-light-gray flex flex-col justify-center items-center min-h-fit h-dvh w-full
+  }
+
+  .recent-reviews-wrapper {
+    @apply container h-full flex flex-col justify-center items-center gap-10 font-ubuntu
+  }
+
   #hero,
   #intro,
   #categories,
-  #top-rated-degree {
+  #top-rated-degree,
+  #recent-reviews {
     @apply snap-start snap-always
   }
 }
