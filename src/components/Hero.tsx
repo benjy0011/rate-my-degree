@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section id="hero" className="hero container">
       <div className="hero-left ">
-        <ShadowWrapper wrapperClassName="-rotate-3" className="bg-yellow-400 text-black text-xs">
+        <ShadowWrapper wrapperClassName="-rotate-3 hover:rotate-0 transition-all" className="bg-yellow-400 text-black text-xs">
           #1 Degree Review Platform
         </ShadowWrapper>
 
