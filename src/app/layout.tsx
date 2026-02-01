@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fredoka, Geist, Geist_Mono, Playpen_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,11 @@ export default function RootLayout({
         className={`${playpenSans.variable} ${fredoka.variable} ${ubuntu.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster
+          closeButton
+          richColors
+          theme="light"
+        />
       </body>
     </html>
   );
