@@ -2,17 +2,19 @@
 
 import { useRouter } from "next/navigation"
 import ShadowWrapper from "./ShadowWrapper"
+import { cn } from "@/lib/utils";
 
 const RedirectButton = ({
   path,
   text,
-} : { path: string, text: string }) => {
+  className = "",
+} : { path: string, text: string, className?: string }) => {
   const route = useRouter();
 
   return (
     <ShadowWrapper
       onClick={() => { route.push(path) }}
-      className="py-2 px-4"
+      className={cn("py-2 px-4", className)}
     >
       {text}
     </ShadowWrapper>
