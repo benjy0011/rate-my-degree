@@ -455,4 +455,24 @@
   .join-the-conversation-wrapper > p {
     @apply text-center
   }
+
+  .footer {
+    @apply py-10 sm:py-12 px-5 flex flex-col justify-center items-center
+  }
+
+  .footer-wrapper {
+    @apply container font-ubuntu text-gray-500 font-medium text-sm flex flex-col justify-center items-center
+  }
+
+  .footer-upper-wrapper {
+    @apply flex justify-evenly w-full max-sm:flex-col max-sm:gap-8
+  }
+
+  .footer-upper-wrapper > div {
+    @apply sm:max-w-xs
+  }
+
+  .footer-lower-wrapper {
+    @apply border-t-2 border-gray-400 pt-4 flex max-sm:w-full w-[68%] mt-12 justify-center items-center
+  }
 }
