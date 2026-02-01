@@ -432,11 +432,27 @@
     @apply container h-full flex flex-col justify-center items-center gap-10 font-ubuntu
   }
 
-  #hero,
+  /* #hero,
   #intro,
   #categories,
   #top-rated-degree,
   #recent-reviews {
     @apply snap-start snap-always
+  } */
+
+  .join-the-conversation {
+    @apply font-ubuntu text-white bg-primary w-full px-4 py-20 max-md:py-16 flex flex-col items-center border-y-2 border-black
+  }
+  
+  .join-the-conversation-wrapper {
+    @apply flex flex-col gap-10 max-sm:gap-8 justify-center items-center w-full max-w-lg
+  }
+
+  .join-the-conversation-wrapper > h3 {
+    @apply text-5xl max-md:text-4xl max-sm:text-3xl font-bold text-center
+  }
+
+  .join-the-conversation-wrapper > p {
+    @apply text-center
   }
 }
