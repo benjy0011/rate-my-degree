@@ -98,7 +98,7 @@ const ReviewCard = ({
         {/* Name and username */}
         <div className="flex flex-col flex-3">
           <h6 className="text-lg text-black font-semibold line-clamp-1">{name}</h6>
-          <p className="text-sm line-clamp-1 w-[50%]">{username || getUserNameFromEmail(email)}</p>
+          <p className="text-sm line-clamp-1 w-[50%]">@{username || getUserNameFromEmail(email)}</p>
         </div>
 
         {/* Rating */}
