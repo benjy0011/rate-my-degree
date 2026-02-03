@@ -12,6 +12,7 @@ import { memo } from "react"
 export interface AvatarButtonProps {
   src?: string,
   name?: string,
+  username: string,
   email?: string,
 }
 
@@ -19,8 +20,9 @@ const AvatarButton = ({
   src = "",
   name = "",
   email = "",
+  username,
 } : AvatarButtonProps) => {
-
+  
   const supabase = createClient();
   const router = useRouter();
 
@@ -28,6 +30,10 @@ const AvatarButton = ({
     await supabase.auth.signOut();
     router.refresh(); // IMPORTANT: updates Server Components (Header)
   };
+
+  const navigateToProfile = ( username: string ) => {
+    router.push(`/profile/${username}`);
+  }
 
   const nameAndEmail = () => (
     <>
@@ -51,7 +57,7 @@ const AvatarButton = ({
         <div className="flex gap-4 items-center">
           <Avatar>
             <AvatarImage
-              src={src}
+              src={src + '?sz=200'}
               alt="profile-pic"
               width={250}
               height={250}
@@ -78,7 +84,7 @@ const AvatarButton = ({
         </DropdownMenuLabel>
         
         <DropdownMenuGroup>
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={()=> navigateToProfile(username)}>
             My Profile
           </DropdownMenuItem>
         </DropdownMenuGroup>

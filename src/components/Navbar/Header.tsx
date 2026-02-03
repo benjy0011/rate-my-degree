@@ -18,10 +18,20 @@ const Header = async () => {
     avatar_url = "",
   } = user?.user_metadata ?? {};
 
+  const userProfileData = await (await supabase)
+    .from("profiles")
+    .select("username")
+    .eq("id", user?.id)
+    .single();
+
+
+  const username = userProfileData.data?.username;
+
   const avatarBtnProps: AvatarButtonProps = {
     email: email,
     name: full_name,
     src: avatar_url,
+    username: username as unknown as string,
   }
 
   return (
@@ -35,6 +45,7 @@ const Header = async () => {
               width={200}
               height={32}
               className="header-logo"
+              loading="eager"
             />
           </Link>
 

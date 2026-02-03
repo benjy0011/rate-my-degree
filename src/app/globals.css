@@ -441,7 +441,7 @@
   } */
 
   .join-the-conversation {
-    @apply font-ubuntu text-white bg-primary w-full px-4 py-20 max-md:py-16 flex flex-col items-center border-y-2 border-black
+    @apply font-ubuntu text-white bg-primary w-full px-4 py-20 max-md:py-16 flex flex-col items-center border-t-2 border-black
   }
   
   .join-the-conversation-wrapper {
@@ -457,7 +457,7 @@
   }
 
   .footer {
-    @apply py-10 sm:py-12 px-5 flex flex-col justify-center items-center
+    @apply py-10 sm:py-12 px-5 flex flex-col justify-center items-center border-t-2 border-black
   }
 
   .footer-wrapper {
