@@ -6,7 +6,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer"
 import HeaderLinkTextGroup from "./HeaderLinkTextGroup"
 import { DialogTitle } from "@radix-ui/react-dialog"
 import useScreenSize from "@/hooks/useScreenSize"
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import SignInButton from "./SignInButton"
 import AvatarButton, { AvatarButtonProps } from "./AvatarButton"
 
@@ -18,17 +18,17 @@ const HamburgerMenu = ({
   loggedIn = false,
   ...res
 } : HamburgerMenuProps) => {
-  const { isLargeScreen } = useScreenSize();
+  // const { isLargeScreen } = useScreenSize();
 
   const [open, setOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    if(isLargeScreen && open) {
-      setTimeout(() => {
-        setOpen(false);
-      }, 0)
-    }
-  }, [isLargeScreen, open])
+  // useEffect(() => {
+  //   if(isLargeScreen && open) {
+  //     setTimeout(() => {
+  //       setOpen(false);
+  //     }, 0)
+  //   }
+  // }, [isLargeScreen, open])
 
   return (
     <Drawer open={open} onOpenChange={setOpen} direction="right">
@@ -69,4 +69,4 @@ const HamburgerMenu = ({
     </Drawer>
   )
 }
-export default HamburgerMenu
+export default memo(HamburgerMenu)
