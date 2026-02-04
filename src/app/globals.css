@@ -475,4 +475,21 @@
   .footer-lower-wrapper {
     @apply border-t-2 border-gray-400 pt-4 flex max-sm:w-full w-[68%] mt-12 justify-center items-center
   }
+
+  .profile-page {
+    @apply flex flex-col gap-10 max-md:gap-8
+  }
+
+  .profile-header {
+    @apply flex max-md:flex-col w-full p-8 gap-6 font-ubuntu relative overflow-hidden before:absolute before:inset-0 before:z-0 before:bg-gray-200 before:[clip-path:polygon(65%_0,100%_0,100%_100%)]
+  }
+
+  .profile-header-upper {
+    @apply border-b-2 border-dashed border-gray-400 flex flex-col gap-4 pb-6
+  }
+
+  .profile-header-lower {
+    @apply flex gap-3
+  }
+
 }

@@ -66,7 +66,7 @@ const Page = async ({
 
   
   return (
-    <div className="container">
+    <div className="container profile-page">
       <ProfileHeader username={username} isCurrentUser={isMyProfile} />
     </div>
   )

@@ -52,12 +52,7 @@ const ProfileHeader = async ({
 
   return (
     <ServerShadowWrapper
-      className={cn(
-        "flex max-md:flex-col w-full p-8 gap-6 font-ubuntu",
-        "relative overflow-hidden",
-        "before:absolute before:inset-0 before:z-0 before:bg-gray-200",
-        "before:[clip-path:polygon(65%_0,100%_0,100%_100%)]"
-      )}
+      className="profile-header"
     >
       {/* Image */}
       <ServerShadowWrapper
@@ -79,7 +74,7 @@ const ProfileHeader = async ({
         className="flex-1 w-full flex flex-col gap-4"
       >
         {/* Upper Section */}
-        <div className="border-b-2 border-dashed border-gray-400 flex flex-col gap-4 pb-6">
+        <div className="profile-header-upper">
           {/* Name */}
           <div className="inline-flex gap-4 items-center">
             <h3 className="text-3xl font-bold">
@@ -105,7 +100,7 @@ const ProfileHeader = async ({
         </div>
         
         {/* Lower Section */}
-        <div className="flex gap-3">
+        <div className="profile-header-lower">
 
           {/* Joined Date */}
           <div className="inline-flex gap-2">
