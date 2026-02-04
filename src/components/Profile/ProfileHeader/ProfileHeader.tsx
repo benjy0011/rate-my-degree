@@ -7,8 +7,9 @@ import EducationDiv from "./EducationDiv";
 import { CalendarDays } from "lucide-react";
 
 const ProfileHeader = async ({
-  username
-} : { username: string }) => {
+  username,
+  isCurrentUser,
+} : { username: string, isCurrentUser: boolean }) => {
   const supabase = createClient();
 
   const { data: userData, error } = await (await supabase)
@@ -116,7 +117,7 @@ const ProfileHeader = async ({
       </div>
 
       <div
-        className=""
+        className={cn(!isCurrentUser && "invisible")}
       >
         <EditProfileButton />
       </div>
