@@ -2,6 +2,7 @@
 import ProfileHeader from "@/components/Profile/ProfileHeader/ProfileHeader";
 import { createClient } from "@/lib/supabase/server";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { memo } from "react"
 
 interface Props {
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const supabase = createClient();
   
-  // 1️⃣ Get the profile by username
+  // Get the profile by username
   const { data: profile } = await (await supabase)
     .from("profiles")
     .select(`id, full_name, username`)
@@ -24,13 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Profile Not Found | Rate My Degree" };
   }
 
-  // 2️⃣ Get the current logged-in user
+  // Get the current logged-in user
   const { data: { user } } = await (await supabase).auth.getUser();
 
-  // 3️⃣ Check if this is "my profile"
+  // Check if this is "my profile"
   const isMyProfile = user?.id === profile.id;
 
-  // 4️⃣ Return dynamic title
+  // Return dynamic title
   return {
     title: isMyProfile
       ? "My Profile | Rate My Degree"
@@ -42,10 +43,31 @@ const Page = async ({
   params
 }: Props) => {
   const { username } = await params;
+
+  const supabase = createClient();
+
+  const { data: profile } = await (await supabase)
+    .from("profiles")
+    .select(`id, full_name, username`)
+    .eq("username", username)
+    .single();
+
+  // Get the current logged-in user
+  const { data: { user } } = await (await supabase).auth.getUser();
+
+
+  // TODO: Handle no profile case
+  if (!profile) {
+    notFound();
+  }
+
+  // Check if this is "my profile"
+  const isMyProfile = user?.id === profile.id;
+
   
   return (
     <div className="container">
-      <ProfileHeader username={username} />
+      <ProfileHeader username={username} isCurrentUser={isMyProfile} />
     </div>
   )
 }
