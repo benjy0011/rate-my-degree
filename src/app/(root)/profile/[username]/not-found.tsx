@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <div className="container text-center py-20 flex flex-col items-center gap-4">
+    <div className="container py-30 text-center flex flex-col items-center gap-4">
       <Image
         src="/assets/images/not-found.svg"
         alt="Not Found"

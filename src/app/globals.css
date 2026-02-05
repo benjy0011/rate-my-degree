@@ -476,8 +476,12 @@
     @apply border-t-2 border-gray-300 pt-10 flex max-sm:w-full max-md:w-[92%] max-lg:w-[83%] w-[68%] mt-14 justify-center items-center text-gray-400
   }
 
+  .profile-main-wrapper {
+    @apply flex flex-col justify-center items-center
+  }
+
   .profile-page {
-    @apply flex flex-col gap-10 max-md:gap-8
+    @apply flex flex-col gap-10 max-md:gap-8 py-15
   }
 
   .profile-header {
