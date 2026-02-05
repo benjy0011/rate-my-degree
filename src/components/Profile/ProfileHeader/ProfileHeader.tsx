@@ -5,6 +5,7 @@ import EditProfileButton from "./EditProfileButton";
 import { cn, dateFormat } from "@/lib/utils";
 import EducationDiv from "./EducationDiv";
 import { CalendarDays } from "lucide-react";
+import { notFound } from "next/navigation";
 
 const ProfileHeader = async ({
   username,
@@ -40,15 +41,13 @@ const ProfileHeader = async ({
     .single();
 
   // TODO: Handle empty data
-  if (!userData) return null;
+  if (!userData) return notFound();
 
   const fullName = userData.full_name;
   const userName = userData.username;
   const userDegrees = userData.user_degrees;
   const profilePicUrl = userData.avatar_url;
   const joinedDate = dateFormat(userData.created_at);
-
-  console.log(">>>>>> userData", userData)
 
   return (
     <ServerShadowWrapper

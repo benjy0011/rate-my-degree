@@ -1,9 +1,11 @@
 
+import About from "@/components/Profile/About/About";
 import ProfileHeader from "@/components/Profile/ProfileHeader/ProfileHeader";
+import { Skeleton } from "@/components/ui/skeleton";
 import { createClient } from "@/lib/supabase/server";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { memo } from "react"
+import { memo, Suspense } from "react"
 
 interface Props {
   params: { username: string }
@@ -67,7 +69,21 @@ const Page = async ({
   
   return (
     <div className="container profile-page">
-      <ProfileHeader username={username} isCurrentUser={isMyProfile} />
+      <Suspense
+        fallback={(
+          <Skeleton className="bg-gray-200 w-full h-50" />
+        )}
+      >
+        <ProfileHeader username={username} isCurrentUser={isMyProfile} />
+      </Suspense>
+
+      <Suspense
+        fallback={(
+          <Skeleton className="bg-gray-200 w-full h-40" />
+        )}
+      >
+        <About username={username} />
+      </Suspense>
     </div>
   )
 }
