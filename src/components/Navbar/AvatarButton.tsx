@@ -41,7 +41,7 @@ const AvatarButton = ({
       <p className="text-xs text-gray-500 text-ellipsis line-clamp-1">{email || <Skeleton className="h-3 w-25 bg-gray-300" />}</p>
     </>
   )
-
+  console.log("rerender")
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -57,13 +57,13 @@ const AvatarButton = ({
         <div className="flex gap-4 items-center">
           <Avatar>
             <AvatarImage
-              src={src + '?sz=200'}
+              src={src}
               alt="profile-pic"
               width={250}
               height={250}
-              onError={(e) => {
-                e.currentTarget.src = "/assets/icons/santa_claus.svg"
-            }} />
+              loading={"lazy"}
+              referrerPolicy="no-referrer"
+            />
             <AvatarFallback className="border-custom-light-gray border-2">
               {!!src
                 ? <Skeleton className="size-7 rounded-full bg-gray-300" />
