@@ -41,7 +41,7 @@ const AvatarButton = ({
       <p className="text-xs text-gray-500 text-ellipsis line-clamp-1">{email || <Skeleton className="h-3 w-25 bg-gray-300" />}</p>
     </>
   )
-  console.log("rerender")
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
