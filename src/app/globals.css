@@ -473,7 +473,7 @@
   }
 
   .footer-lower-wrapper {
-    @apply border-t-2 border-gray-400 pt-4 flex max-sm:w-full w-[68%] mt-12 justify-center items-center
+    @apply border-t-2 border-gray-300 pt-10 flex max-sm:w-full max-md:w-[92%] max-lg:w-[83%] w-[68%] mt-14 justify-center items-center text-gray-400
   }
 
   .profile-page {
