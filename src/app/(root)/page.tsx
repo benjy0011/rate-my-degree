@@ -1,4 +1,3 @@
-import Categories from "@/components/HomePage/ExploreByCategory/Categories"
 import ExploreCategories from "@/components/HomePage/ExploreByCategory/ExploreCategories"
 import Hero from "@/components/HomePage/Hero/Hero"
 import RecentReviews from "@/components/HomePage/RecentReviews/RecentReviews"

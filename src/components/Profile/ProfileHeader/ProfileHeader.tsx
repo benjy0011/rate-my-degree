@@ -6,11 +6,12 @@ import { cn, dateFormat } from "@/lib/utils";
 import EducationDiv from "./EducationDiv";
 import { CalendarDays } from "lucide-react";
 import { notFound } from "next/navigation";
+import { ProfileComponentProps } from "@/types/global";
 
 const ProfileHeader = async ({
   username,
   isCurrentUser,
-} : { username: string, isCurrentUser: boolean }) => {
+} : ProfileComponentProps) => {
   const supabase = createClient();
 
   const { data: userData, error } = await (await supabase)
