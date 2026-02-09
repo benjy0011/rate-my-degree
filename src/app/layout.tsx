@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fredoka, Geist, Geist_Mono, Playpen_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +45,9 @@ export default function RootLayout({
       <body
         className={`${playpenSans.variable} ${fredoka.variable} ${ubuntu.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
         <Toaster
           closeButton
           richColors
