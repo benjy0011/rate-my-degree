@@ -1,13 +1,13 @@
 'use client'
 
 import { cn } from "@/lib/utils"
-import { useLayoutEffect, useRef, useState } from "react"
+import { ReactElement, useLayoutEffect, useRef, useState } from "react"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 const OverflowTooltip = ({
-  className,
+  className = "",
   children,
-} : { className: string, children: string }) => {
+} : { className?: string, children: string | ReactElement }) => {
   const ref = useRef<null | HTMLButtonElement>(null);
   const [showTooltip, setShowTooltip] = useState(false)
 
