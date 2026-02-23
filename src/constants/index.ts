@@ -27,3 +27,7 @@ export const INTROS: IntroCardProps[] = [
 
 
 export const CATEGORIES_DISPLAY_COUNT = 4;
+
+export const DOT_SMALL_DIVIDER = "•";
+export const DOT_MEDIUM_DIVIDER = "●";
+export const DOT_LARGE_DIVIDER = "⏺";

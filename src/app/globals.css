@@ -211,7 +211,7 @@
   }
 
   .header {
-    @apply z-50 h-(--navbar-height) bg-background/90 sticky top-0 left-0 right-0 border-b-2 border-black max-w-dvw;
+    @apply z-20 h-(--navbar-height) bg-background/90 sticky top-0 left-0 right-0 border-b-2 border-black max-w-dvw;
   }
 
   .header-wrapper {
@@ -496,4 +496,15 @@
     @apply flex gap-3
   }
 
+  .profile-degree-review-header {
+    @apply font-fredoka px-6 border-l-4 text-2xl font-semibold border-yellow-400
+  }
+
+  .small-ghost-icon-button {
+    @apply hover:cursor-pointer hover:bg-gray-200 rounded-full
+  }
+
+  .shadow-div-effect {
+    @apply border-2 border-black shadow-[4px_4px_0_0_black]
+  }
 }

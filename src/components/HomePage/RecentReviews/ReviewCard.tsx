@@ -60,6 +60,16 @@ const parseRecommendToEmoji = (recommend?: boolean | undefined | null) => {
     : "✗";
 }
 
+export const RecommendedTag = ({
+  recommend,
+  className = "",
+} : { recommend?: boolean | null | undefined, className?: string }) => (
+  <div className={cn("inline-flex gap-1.5 text-sm font-semibold", parseRecommendToClassName(recommend), className)}>
+    <p>{parseRecommendToEmoji(recommend)}</p>
+    <p>{parseRecommendToDescription(recommend)}</p>
+  </div>
+)
+
 const getUserNameFromEmail = (email: string) => {
   return '@' + (email.split("@")[0] ?? email);
 }
@@ -136,10 +146,7 @@ const ReviewCard = ({
       <div className="flex justify-between w-full items-center">
 
         {/* Recommend Tag */}
-        <div className={cn("inline-flex gap-1.5 text-sm font-semibold", parseRecommendToClassName(recommend))}>
-          <p>{parseRecommendToEmoji(recommend)}</p>
-          <p>{parseRecommendToDescription(recommend)}</p>
-        </div>
+        <RecommendedTag recommend={recommend} />
 
         {/* Likes count */}
         <div className="flex items-center gap-1">
