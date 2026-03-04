@@ -4,9 +4,10 @@ import Image from "next/image";
 import EditProfileButton from "./EditProfileButton";
 import { cn, dateFormat } from "@/lib/utils";
 import EducationDiv from "./EducationDiv";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Mars, Venus } from "lucide-react";
 import { notFound } from "next/navigation";
 import { ProfileComponentProps } from "@/types/global";
+import { DOT_LARGE_DIVIDER, DOT_MEDIUM_DIVIDER, DOT_SMALL_DIVIDER } from "@/constants";
 
 const ProfileHeader = async ({
   username,
@@ -22,6 +23,7 @@ const ProfileHeader = async ({
       username,
       avatar_url,
       created_at,
+      is_male,
       user_degrees(
         graduation_year,
         graduation_month,
@@ -101,6 +103,16 @@ const ProfileHeader = async ({
         
         {/* Lower Section */}
         <div className="profile-header-lower">
+
+          {/* Gender */}
+          {userData.is_male === true
+            ? <Mars color="aqua" />
+            : userData.is_male === false
+            ? <Venus color="pink" />
+            : <></>
+          }
+
+          <div className="text-gray-300">{DOT_SMALL_DIVIDER}</div>
 
           {/* Joined Date */}
           <div className="inline-flex gap-2">
