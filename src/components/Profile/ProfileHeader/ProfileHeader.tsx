@@ -105,14 +105,15 @@ const ProfileHeader = async ({
         <div className="profile-header-lower">
 
           {/* Gender */}
-          {userData.is_male === true
-            ? <Mars color="aqua" />
-            : userData.is_male === false
-            ? <Venus color="pink" />
-            : <></>
-          }
-
-          <div className="text-gray-300">{DOT_SMALL_DIVIDER}</div>
+          <div className="flex gap-3">
+            {userData.is_male === true
+              ? <Mars color="aqua" />
+              : userData.is_male === false
+              ? <Venus color="pink" />
+              : <></>
+            }
+            <div className="text-gray-400">{DOT_SMALL_DIVIDER}</div>
+          </div>
 
           {/* Joined Date */}
           <div className="inline-flex gap-2">
