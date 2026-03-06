@@ -52,6 +52,7 @@ export default function RootLayout({
           closeButton
           richColors
           theme="light"
+          className="pointer-events-auto"
         />
       </body>
     </html>

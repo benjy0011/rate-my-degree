@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Rating from "../../Rating";
 import ShadowWrapper from "../../ShadowWrapper"
-import { ThumbsUp } from "lucide-react";
+import { Check, Minus, ThumbsUp, X } from "lucide-react";
 
 interface ReviewCardProps {
   name: string;
@@ -52,20 +52,23 @@ const parseRecommendToDescription = (recommend?: boolean | undefined | null) => 
     : "Not Recommend";
 }
 
-const parseRecommendToEmoji = (recommend?: boolean | undefined | null) => {
-  return recommend === undefined || recommend === null 
-    ? "─" 
-    : recommend === true 
-    ? "✔" 
-    : "✗";
+const ParseRecommendToIcon = ({recommend} : {recommend?: boolean | undefined | null}) => {
+  const Icon =
+    recommend === undefined || recommend === null
+      ? Minus
+      : recommend === true
+      ? Check
+      : X
+
+  return <Icon className={cn("p-px", parseRecommendToClassName(recommend))} />
 }
 
 export const RecommendedTag = ({
   recommend,
   className = "",
 } : { recommend?: boolean | null | undefined, className?: string }) => (
-  <div className={cn("inline-flex gap-1.5 text-sm font-semibold", parseRecommendToClassName(recommend), className)}>
-    <p>{parseRecommendToEmoji(recommend)}</p>
+  <div className={cn("inline-flex gap-1.5 text-sm font-semibold items-center", parseRecommendToClassName(recommend), className)}>
+    <ParseRecommendToIcon recommend={recommend} />
     <p>{parseRecommendToDescription(recommend)}</p>
   </div>
 )

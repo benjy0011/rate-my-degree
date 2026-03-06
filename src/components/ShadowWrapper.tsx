@@ -9,6 +9,7 @@ const calculatePx = (num: number): string => `${num * 4}px`;
 interface ShadowWrapperProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
   wrapperClassName?: string
+  spinnerClassname?: string
   shadowDepth?: number
   disabled?: boolean
   loading?: boolean
@@ -18,6 +19,7 @@ const ShadowWrapper = ({
   children,
   className,
   wrapperClassName,
+  spinnerClassname,
   onClick,
   shadowDepth = 1,
   disabled=false,
@@ -92,7 +94,7 @@ const ShadowWrapper = ({
       >
         {children}
 
-        <Spinner className={cn("absolute left-1.5 transition-all duration-300 opacity-0", showLoader && "opacity-100")} />
+        <Spinner className={cn("absolute left-1.5 transition-all duration-300 opacity-0", showLoader && "opacity-100", spinnerClassname)} />
 
       </div>
     </div>

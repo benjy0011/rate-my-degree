@@ -507,4 +507,24 @@
   .shadow-div-effect {
     @apply border-2 border-black shadow-[4px_4px_0_0_black]
   }
+
+  .shadow-div-effect-sm {
+    @apply border-2 border-black shadow-[2px_2px_0_0_black]
+  }
+
+  .shadow-div-effect-sm-error {
+    @apply border-2 border-red-600 shadow-[2px_2px_0_0_red]
+  }
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

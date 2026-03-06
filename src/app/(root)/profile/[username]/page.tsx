@@ -1,6 +1,8 @@
 
 import About from "@/components/Profile/About/About";
+import DegreeReviews from "@/components/Profile/DegreeReviews/DegreeReviews";
 import ProfileHeader from "@/components/Profile/ProfileHeader/ProfileHeader";
+import ServerShadowWrapper from "@/components/Profile/ServerShadowWrapper";
 import { Skeleton } from "@/components/ui/skeleton";
 import { createClient } from "@/lib/supabase/server";
 import { Metadata } from "next";
@@ -69,6 +71,8 @@ const Page = async ({
   
   return (
     <div className="container profile-page">
+
+      {/* Top Section */}
       <Suspense
         fallback={(
           <Skeleton className="bg-gray-200 w-full h-50" />
@@ -84,6 +88,30 @@ const Page = async ({
       >
         <About username={username} />
       </Suspense>
+
+
+
+      {/* Main Section */}
+      <div className="flex gap-8">
+        {/* Left */}
+        <div className="flex-2 flex flex-col gap-6">
+          <h5 className="profile-degree-review-header">
+            {isMyProfile ? "My" : profile.full_name} Degree Review
+          </h5>
+
+          <Suspense>
+            <DegreeReviews username={username} isCurrentUser={isMyProfile} />
+          </Suspense>
+        </div>
+
+        <div className="flex-1">
+          <ServerShadowWrapper>
+            Right
+          </ServerShadowWrapper>
+        </div>
+      </div>
+
+
     </div>
   )
 }
