@@ -1,9 +1,8 @@
 'use client'
 
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import { ReactNode, useMemo, useState } from "react"
-import { useRouter } from "next/navigation"
 import DegreeCombobox from "./FormSections/DegreeCombobox"
 import DegreeRatings, { DegreeRatingProps } from "./FormSections/DegreeRatings"
 import FormSectionWrapper from "./FormSections/FormSectionWrapper"
@@ -15,7 +14,6 @@ import StatusSelect from "./FormSections/StatusSelect"
 import DegreeComment from "./FormSections/DegreeComment"
 import DegreeGraduation from "./FormSections/DegreeGraduation"
 import { toast } from "sonner"
-import { Button } from "@/components/ui/button"
 import ShadowWrapper from "@/components/ShadowWrapper"
 
 type SelectedDegree = Pick<
@@ -29,6 +27,7 @@ interface EditReviewsDialogProps {
   selectedDegreeInit: SelectedDegree;
   ratingsInit: UserDegree["reviews"];
   userDegree: UserDegree;
+  username: string;
 }
 
 const allRatings = {
@@ -55,9 +54,9 @@ const EditReviewsDialog = ({
   selectedDegreeInit,
   ratingsInit,
   userDegree,
+  username,
 } : EditReviewsDialogProps) => {
   const [open, setOpen] = useState(false);
-  const router = useRouter();
   
   // Form States
   const [ selectedDegree, setSelectedDegree ] = useState<SelectedDegree>(selectedDegreeInit);
@@ -136,14 +135,13 @@ const EditReviewsDialog = ({
     setIsSubmitting(true);
 
     const id = userDegree.reviews.id;
-    const { error } = await updateReview ( id, payload );
+    const { error } = await updateReview ( id, payload, username );
 
     if (error) {
       toast.error(error);
     } else {
       toast.success("Review updated!");
       setOpen(false);
-      router.refresh();
     }
 
     setIsSubmitting(false);

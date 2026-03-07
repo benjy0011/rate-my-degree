@@ -41,9 +41,11 @@ function parseRatings (data: UserDegree["reviews"]) {
 const DegreeReviewsCard = ({
   user_degree: userDegree,
   isCurrentUser,
+  username,
 } : {
   user_degree: UserDegree,
-  isCurrentUser: boolean
+  isCurrentUser: boolean,
+  username: string,
 }) => {
   
 
@@ -69,6 +71,7 @@ const DegreeReviewsCard = ({
             selectedDegreeInit={{ id: userDegree.degrees.id, name: userDegree.degrees.name }}
             ratingsInit={userDegree.reviews}
             userDegree={userDegree}
+            username={username}
           >
             <Button className="hover:cursor-pointer hover:bg-gray-200 rounded-full" variant="ghost" size="icon-sm">
               <Pencil />

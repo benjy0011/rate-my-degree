@@ -79,6 +79,7 @@ const DegreeReviews = async ({
     <DegreeReviewsClient
       isCurrentUser={isCurrentUser}
       user_degrees={user.user_degrees as unknown as DegreeReviewsQueryResult["user_degrees"]}
+      username={username}
     />
   )
 }

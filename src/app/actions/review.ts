@@ -36,6 +36,7 @@ const UpdateReviewSchema = z.object({
 export async function updateReview(
   id: string,
   payload: UpdateReviewPayload,
+  username: string,
 ) {
   const {
     comment,
@@ -96,7 +97,7 @@ export async function updateReview(
     return { error: "Database transaction failed", message: error.message };
   }
 
-  revalidatePath('/reviews');
+  revalidatePath(`/profile/${username}`);
   return { success: true };
 }
 
