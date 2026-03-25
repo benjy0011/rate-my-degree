@@ -3,6 +3,7 @@ import { Fredoka, Geist, Geist_Mono, Playpen_Sans, Ubuntu } from "next/font/goog
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthProvider } from "@/context/auth/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -18,6 +18,7 @@ const StatusSelect = ({
       selections={EMPLOYMENT_STATUS_SELECTIONS}
       onChange={onChange}
       selectionRenderer={(val) => <>{val}</>}
+      placeHolder="Employment Status"
     />
   )
 }

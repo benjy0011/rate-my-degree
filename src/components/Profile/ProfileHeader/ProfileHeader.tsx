@@ -88,16 +88,19 @@ const ProfileHeader = async ({
           
           {/* Degrees */}
           <div className="flex gap-2">
-            {userDegrees.map(( { degrees, graduation_year }, index) => (
-              <EducationDiv
-                key={index}
-                //@ts-expect-error shape different
-                degreeName={degrees.name}
-                //@ts-expect-error shape different
-                university={degrees.universities.name}
-                graduationYear={graduation_year}
-              />
-            ))}
+            {userDegrees?.length > 0
+              ? userDegrees.map(( { degrees, graduation_year }, index) => (
+                  <EducationDiv
+                    key={index}
+                    //@ts-expect-error shape different
+                    degreeName={degrees.name}
+                    //@ts-expect-error shape different
+                    university={degrees.universities.name}
+                    graduationYear={graduation_year}
+                  />
+                ))
+              : <EducationDiv empty />
+            }
           </div> 
         </div>
         

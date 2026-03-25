@@ -16,9 +16,8 @@ export type UpdateReviewPayload = Pick<
   "comment" | "overall_rating" | "career_rating" | "curriculum_rating" | "lecturer_rating" | "value_rating" | "would_recommend" | "facilities_rating" | "employment_status" 
 > & Pick<UserDegreeUpdate, "id" | "degree_id" | "graduation_year" | "graduation_month" | "user_id" >
 
-const UpdateReviewSchema = z.object({
-  user_degrees_id: z.uuid(),
-  comment: z.string().min(10, "Comment is too short").max(2000),
+const BaseReviewSchema = z.object({
+  comment: z.string().min(10).max(2000),
   overall_rating: z.number().int().min(1).max(5),
   career_rating: z.number().int().min(1).max(5),
   curriculum_rating: z.number().int().min(1).max(5),
@@ -32,8 +31,57 @@ const UpdateReviewSchema = z.object({
   graduation_month: z.number().int().min(1).max(12),
 });
 
+const CreateReviewSchema = BaseReviewSchema;
 
-export async function updateReview(
+const UpdateReviewSchema = BaseReviewSchema.extend({
+  user_degrees_id: z.uuid(),
+});
+
+export async function createReview (
+  payload: UpdateReviewPayload,
+  username: string,
+) {
+  const supabase = createClient();
+  const { data: { user } } = await (await supabase).auth.getUser();
+
+  const validatedFields = CreateReviewSchema.safeParse(payload);
+  
+  if (!validatedFields.success) {
+    return {
+      error: "Validation Failed",
+      details: z.treeifyError(validatedFields.error) // validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const data = validatedFields.data;
+
+  const { error } = await (await supabase).rpc('create_review_and_degree_v1', {
+    p_user_id: user?.id,
+    p_comment: data.comment,
+    p_overall_rating: data.overall_rating,
+    p_career_rating: data.career_rating,
+    p_curriculum_rating: data.curriculum_rating,
+    p_lecturer_rating: data.lecturer_rating,
+    p_value_rating: data.value_rating,
+    p_would_recommend: data.would_recommend,
+    p_facilities_rating: data.facilities_rating,
+    p_employment_status: data.employment_status,
+    p_degree_id: data.degree_id,
+    p_graduation_year: data.graduation_year,
+    p_graduation_month: data.graduation_month,
+  });
+
+  if (error) {
+    console.log(error.message)
+    return { error: "Database transaction failed", message: error.message };
+  }
+
+  revalidatePath(`/profile/${username}`);
+  return { success: true };
+}
+
+
+export async function updateReview (
   id: string,
   payload: UpdateReviewPayload,
   username: string,
@@ -93,7 +141,6 @@ export async function updateReview(
   });
 
   if (error) {
-    console.log(error)
     return { error: "Database transaction failed", message: error.message };
   }
 
@@ -102,12 +149,16 @@ export async function updateReview(
 }
 
 
-export async function deleteReview(id: string) {
+export async function deleteReview(id: string, username: string) {
   const supabase = createClient();
-  const { error } = await (await supabase)
-    .from("reviews")
-    .delete()
-    .eq("id", id)
+  const { error } = await (await supabase).rpc('delete_review_v1', {
+    p_user_degree_id: id,
+  });
 
-  if (error) throw error
+  if (error) {
+    return { error: "Failed to delete review.", message: error.message };
+  };
+  
+  revalidatePath(`/profile/${username}`);
+  return { success: true };
 }

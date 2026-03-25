@@ -1,5 +1,6 @@
 
 import About from "@/components/Profile/About/About";
+import AddReviewDialog from "@/components/Profile/AddReviewDialog";
 import DegreeReviews from "@/components/Profile/DegreeReviews/DegreeReviews";
 import ProfileHeader from "@/components/Profile/ProfileHeader/ProfileHeader";
 import ServerShadowWrapper from "@/components/Profile/ServerShadowWrapper";
@@ -95,9 +96,24 @@ const Page = async ({
       <div className="flex gap-8">
         {/* Left */}
         <div className="flex-2 flex flex-col gap-6">
-          <h5 className="profile-degree-review-header">
-            {isMyProfile ? "My" : profile.full_name} Degree Review
-          </h5>
+
+          {/* Title */}
+          <div className="flex justify-between">
+            <h5 className="profile-degree-review-header">
+              {isMyProfile ? "My" : profile.full_name} Degree Review
+            </h5>
+
+            <AddReviewDialog
+              userId={profile.id}
+            >
+              <p 
+                className="text-primary font-ubuntu px-2 font-medium hover:cursor-pointer hover:underline"
+              >
+                Add Review
+              </p>
+            </AddReviewDialog>
+          </div>
+          
 
           <Suspense>
             <DegreeReviews username={username} isCurrentUser={isMyProfile} />

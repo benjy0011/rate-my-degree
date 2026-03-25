@@ -11,6 +11,10 @@ import Rating from "@/components/Rating"
 import { DOT_SMALL_DIVIDER } from "@/constants"
 import EditReviewsDialog from "./EditReviewsDialog"
 import { UserDegree } from "./DegreeReviews"
+import ConfirmationDialog from "@/components/ConfirmationDialog"
+import { useState } from "react"
+import { deleteReview } from "@/app/actions/review"
+import { toast } from "sonner"
 
 const ReviewRating = ({
   name,
@@ -47,7 +51,17 @@ const DegreeReviewsCard = ({
   isCurrentUser: boolean,
   username: string,
 }) => {
-  
+  const [ deleteDialogOpen, setDeleteDialogOpen ] = useState<boolean>(false);
+
+  const deleteReviewAction = async () => {
+    const { error } = await deleteReview(userDegree.id, username);
+
+    if (error) {
+      toast.error(error);
+    } else {
+      toast.success("Successfully deleted review.");
+    }
+  }
 
   return (
     <ServerShadowWrapper className="py-6 px-5 font-fredoka">
@@ -68,8 +82,6 @@ const DegreeReviewsCard = ({
         {/* Buttons */}
         <div className={cn("flex", !isCurrentUser && "invisible")}>
           <EditReviewsDialog
-            selectedDegreeInit={{ id: userDegree.degrees.id, name: userDegree.degrees.name }}
-            ratingsInit={userDegree.reviews}
             userDegree={userDegree}
             username={username}
           >
@@ -78,7 +90,7 @@ const DegreeReviewsCard = ({
             </Button>
           </EditReviewsDialog>
 
-          <Button className="hover:cursor-pointer hover:bg-gray-200 rounded-full" variant="ghost" size="icon-sm">
+          <Button className="hover:cursor-pointer hover:bg-gray-200 rounded-full" variant="ghost" size="icon-sm" onClick={() => setDeleteDialogOpen(true)}>
             <Trash2 stroke="red" />
           </Button>
         </div>
@@ -118,7 +130,17 @@ const DegreeReviewsCard = ({
           <span>Helpful</span>
         </div>
       </div>
+      
 
+      <ConfirmationDialog
+        open={deleteDialogOpen}
+        type="DELETE"
+        text="Are you sure to delete this review?"
+        onClose={() => setDeleteDialogOpen(false)}
+        onAction={async () => {
+          await deleteReviewAction();
+        }}
+      />
     </ServerShadowWrapper>
   )
 }

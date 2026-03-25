@@ -79,9 +79,9 @@ const ShadowWrapper = ({
         className={
           cn(
             "px-3 py-1 border-3 border-black font-fredoka font-semibold bg-primary text-white transition-all duration-200 flex gap-2 items-center relative",
-            isLoadingOrDisabled && "bg-gray-200 text-gray-400 border-gray-500",
             loading && "pl-7",
-            className
+            className,
+            isLoadingOrDisabled && "bg-gray-200 text-gray-400 border-gray-500",
           )
         }
         style={{

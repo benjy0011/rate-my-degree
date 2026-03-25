@@ -16,7 +16,7 @@ import DegreeGraduation from "./FormSections/DegreeGraduation"
 import { toast } from "sonner"
 import ShadowWrapper from "@/components/ShadowWrapper"
 
-type SelectedDegree = Pick<
+export type SelectedDegree = Pick<
     UserDegree["degrees"],
     "id" | "name"
   > | null;
@@ -24,13 +24,11 @@ type SelectedDegree = Pick<
 
 interface EditReviewsDialogProps {
   children: ReactNode;
-  selectedDegreeInit: SelectedDegree;
-  ratingsInit: UserDegree["reviews"];
   userDegree: UserDegree;
   username: string;
 }
 
-const allRatings = {
+export const allRatings = {
   "overall_rating": 0,
   "career_rating": 1,
   "curriculum_rating": 2,
@@ -39,7 +37,7 @@ const allRatings = {
   "value_rating": 5,
 }
 
-const snakeCaseToReadable = (snake: string) => {
+export const snakeCaseToReadable = (snake: string) => {
   const texts = snake.split("_");
 
   if (texts.length <= 1) return snake;
@@ -51,20 +49,18 @@ const snakeCaseToReadable = (snake: string) => {
 
 const EditReviewsDialog = ({
   children,
-  selectedDegreeInit,
-  ratingsInit,
   userDegree,
   username,
 } : EditReviewsDialogProps) => {
   const [open, setOpen] = useState(false);
   
   // Form States
-  const [ selectedDegree, setSelectedDegree ] = useState<SelectedDegree>(selectedDegreeInit);
-  const [ ratings, setRatings ] = useState<UserDegree["reviews"]>(ratingsInit);
+  const [ selectedDegree, setSelectedDegree ] = useState<SelectedDegree>(userDegree.degrees);
+  const [ ratings, setRatings ] = useState<UserDegree["reviews"]>(userDegree.reviews);
   const [ wouldRecommend, setWouldRecommend ] = useState<UserDegree["reviews"]["would_recommend"]>(userDegree.reviews.would_recommend);
   const [ employmentStatus, setEmploymentStatus ] = useState<UserDegree["reviews"]["employment_status"]>(userDegree.reviews.employment_status);
   const [ comment, setComment ] = useState<UserDegree["reviews"]["comment"]>(userDegree.reviews.comment);
-  const [ month, setMonth ] = useState<UserDegree["graduation_month"]>(userDegree.graduation_month);
+  const [ month, setMonth ] = useState<UserDegree["graduation_month"] | undefined>(userDegree.graduation_month);
   const [ year, setYear ] = useState<UserDegree["graduation_year"] | undefined>(userDegree.graduation_year);
 
   // Error states
@@ -102,8 +98,8 @@ const EditReviewsDialog = ({
 
   const clearOut = () => {
     setTimeout(() => {
-      setSelectedDegree(selectedDegreeInit);
-      setRatings(ratingsInit);
+      setSelectedDegree(userDegree.degrees);
+      setRatings(userDegree.reviews);
       setWouldRecommend(userDegree.reviews.would_recommend);
       setEmploymentStatus(userDegree.reviews.employment_status);
       setComment(userDegree.reviews.comment);

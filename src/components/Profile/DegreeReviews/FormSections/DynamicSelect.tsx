@@ -19,7 +19,15 @@ const DynamicSelect = <T, >({
   placeHolder,
 }  : DegreeRecommendProps<T>) => {
   return (
-    <Select value={value} onValueChange={(val: T) => onChange?.(val)}>
+    <Select
+      value={value !== null && value !== undefined ? String(value) : ""}
+      onValueChange={(val: string) => {
+        const original = selections.find(s => String(s) === val);
+        if (original !== undefined) {
+          onChange?.(original);
+        }
+      }}
+    >
       <SelectTrigger className="w-full hover:cursor-pointer shadow-div-effect-sm">
         <SelectValue placeholder={placeHolder} />
       </SelectTrigger>
@@ -28,7 +36,7 @@ const DynamicSelect = <T, >({
           {/* <SelectLabel>Fruits</SelectLabel> */}
           {
             selections.map(( selection, index ) => (
-              <SelectItem value={selection} key={index}>
+              <SelectItem value={String(selection)} key={index}>
                 {selectionRenderer(selection)}
               </SelectItem>
             ))
