@@ -28,6 +28,7 @@ const AvatarButton = ({
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    router.replace("/");
     router.refresh(); // IMPORTANT: updates Server Components (Header)
   };
 

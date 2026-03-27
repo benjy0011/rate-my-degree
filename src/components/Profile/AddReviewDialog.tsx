@@ -61,6 +61,7 @@ const AddReviewDialog = ({
 
   // Error States
   const [ errors, setErrors ] = useState<(keyof UpdateReviewPayload)[]>([]);
+  const [ errorFields, setErrorFields ] = useState<string>("");
   const yearError = 
     (newUserDegree?.graduation_year ?? 0) < 1000
 
@@ -115,6 +116,7 @@ const AddReviewDialog = ({
       setNewUserDegree(plainUserDegree);
       setSelectedDegree(null);
       setErrors([]);
+      setErrorFields("");
     }, 200)
   }
 
@@ -125,12 +127,14 @@ const AddReviewDialog = ({
 
   const submit = async () => {
     let flag = false;
+    setIsSubmitting(true);
 
     Object.entries(newUserDegree)
       .forEach(([key, value]) => {
         if (
           (!value && !["id", "would_recommend"].includes(key))
           || (key === "would_recommend" && value === undefined )
+          // || ( key === "comment" && ((value?.toString().length ?? 0) < 10) )
         ) {
           addToErrors(key as keyof UpdateReviewPayload);
           flag = true;
@@ -140,11 +144,18 @@ const AddReviewDialog = ({
       })
 
     if (flag) {
-      toast.error("Incomplete review")
-      return;
+      // toast.error("Incomplete review")
+      // return;
     }
 
-    const { error, message } = await createReview(newUserDegree, currentUser?.username ?? "");
+    const { error, message, errorFields } = await createReview(newUserDegree, currentUser?.username ?? "");
+    setIsSubmitting(false);
+
+    if (errorFields && errorFields?.length > 0) {
+      setErrorFields(errorFields);
+      toast.error("Incomplete review");
+      return;
+    }
 
     if (error) {
       toast.error(error ?? "Error in creating review");
@@ -234,6 +245,7 @@ const AddReviewDialog = ({
             <DegreeComment
               comment={newUserDegree.comment}
               onChange={(v) => updateNewUserDegree("comment", v)}
+              error={errors.includes("comment") && (newUserDegree.comment?.length ?? 0) < 10}
             />
           </FormSectionWrapper>
 

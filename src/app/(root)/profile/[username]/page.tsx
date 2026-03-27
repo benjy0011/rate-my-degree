@@ -103,15 +103,17 @@ const Page = async ({
               {isMyProfile ? "My" : profile.full_name} Degree Review
             </h5>
 
-            <AddReviewDialog
-              userId={profile.id}
-            >
-              <p 
-                className="text-primary font-ubuntu px-2 font-medium hover:cursor-pointer hover:underline"
+            {!!user && user?.id === profile?.id &&
+              <AddReviewDialog
+                userId={profile.id}
               >
-                Add Review
-              </p>
-            </AddReviewDialog>
+                <p 
+                  className="text-primary font-ubuntu px-2 font-medium hover:cursor-pointer hover:underline"
+                >
+                  Add Review
+                </p>
+              </AddReviewDialog>
+            }
           </div>
           
 

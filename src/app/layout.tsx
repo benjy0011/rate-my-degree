@@ -54,6 +54,7 @@ export default function RootLayout({
           richColors
           theme="light"
           className="pointer-events-auto"
+          position="top-center"
         />
       </body>
     </html>

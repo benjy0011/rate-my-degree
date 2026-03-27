@@ -47,9 +47,13 @@ export async function createReview (
   const validatedFields = CreateReviewSchema.safeParse(payload);
   
   if (!validatedFields.success) {
+    //@ts-expect-error object shape
+    const errorFields = Object.keys(z.treeifyError(validatedFields.error).properties)?.join(", ");
+
     return {
       error: "Validation Failed",
-      details: z.treeifyError(validatedFields.error) // validatedFields.error.flatten().fieldErrors,
+      details: z.treeifyError(validatedFields.error), // validatedFields.error.flatten().fieldErrors,
+      errorFields: errorFields ?? "",
     };
   }
 
@@ -156,6 +160,7 @@ export async function deleteReview(id: string, username: string) {
   });
 
   if (error) {
+    console.log("Error deleting revirew: ", error);
     return { error: "Failed to delete review.", message: error.message };
   };
   
