@@ -54,6 +54,7 @@ const ReviewCards = async () => {
           comment={review.comment}
           like_count={review.helpful_count}
           status={review.employment_status}
+          review_id={review.id}
         />
       ))}
     </div>

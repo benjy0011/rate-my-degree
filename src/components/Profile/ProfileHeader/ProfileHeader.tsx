@@ -7,7 +7,7 @@ import EducationDiv from "./EducationDiv";
 import { CalendarDays, Mars, Venus } from "lucide-react";
 import { notFound } from "next/navigation";
 import { ProfileComponentProps } from "@/types/global";
-import { DOT_LARGE_DIVIDER, DOT_MEDIUM_DIVIDER, DOT_SMALL_DIVIDER } from "@/constants";
+import { DOT_SMALL_DIVIDER } from "@/constants";
 
 const ProfileHeader = async ({
   username,

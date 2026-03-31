@@ -6,7 +6,7 @@ import RedirectButton from "../../RedirectButton"
 const RecentReviews = () => {
   return (
     <section id="recent-reviews" className="recent-reviews">
-      <div className="recent-reviews-wrapper">
+      <div className="recent-reviews-wrapper my-8">
         <h4 className="h4 text-center">Recent Reviews</h4>
 
         <Suspense fallback={

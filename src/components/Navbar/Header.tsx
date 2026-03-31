@@ -7,6 +7,7 @@ import SignInButton from "./SignInButton"
 import HamburgerMenu from "./HamburgerMenu"
 import { createClient } from "@/lib/supabase/server"
 import AvatarButton, { AvatarButtonProps } from "./AvatarButton"
+import SaveUserData from "../Profile/ProfileHeader/SaveUserData"
 
 const Header = async () => {
   const supabase = createClient();
@@ -36,6 +37,10 @@ const Header = async () => {
 
   return (
     <header className="header">
+      <SaveUserData
+        username={username}
+      />
+
       <div className="container header-wrapper">
         <div className="header-left">
           <Link href="/">

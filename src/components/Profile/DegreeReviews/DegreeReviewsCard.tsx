@@ -15,6 +15,7 @@ import ConfirmationDialog from "@/components/ConfirmationDialog"
 import { useState } from "react"
 import { deleteReview } from "@/app/actions/review"
 import { toast } from "sonner"
+import ReviewLikeButton from "../../ReviewLikeButton/ReviewLikeButton"
 
 const ReviewRating = ({
   name,
@@ -124,11 +125,13 @@ const DegreeReviewsCard = ({
           Posted on {dateFormatFull(userDegree.reviews.created_at ?? "")}
         </div>
 
-        <div className="inline-flex gap-1 items-center text-sm">
+        {/* <div className="inline-flex gap-1 items-center text-sm">
           <ThumbsUp size={16} />
           <span>{userDegree.reviews.helpful_count}</span>
           <span>Helpful</span>
-        </div>
+        </div> */}
+
+        <ReviewLikeButton review_id={userDegree.reviews.id} />
       </div>
       
 

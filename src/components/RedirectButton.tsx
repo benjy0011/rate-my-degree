@@ -8,12 +8,15 @@ const RedirectButton = ({
   path,
   text,
   className = "",
-} : { path: string, text: string, className?: string }) => {
+} : { path?: string, text: string, className?: string }) => {
   const route = useRouter();
 
   return (
     <ShadowWrapper
-      onClick={() => { route.push(path) }}
+      onClick={() => { 
+        if (!path) return;
+        route.push(path)
+      }}
       className={cn("py-2 px-4", className)}
     >
       {text}

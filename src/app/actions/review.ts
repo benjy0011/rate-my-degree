@@ -167,3 +167,56 @@ export async function deleteReview(id: string, username: string) {
   revalidatePath(`/profile/${username}`);
   return { success: true };
 }
+
+export async function likeReview (reviewId: string) {
+  const supabase = createClient();
+  const { data: { user } } = await (await supabase).auth.getUser();
+
+  if (!user) {
+    throw new Error ( "Please sign in to like." );
+  }
+
+  const { data, error } = await (await supabase).rpc('like_review_v1', {
+    p_review_id: reviewId,
+  });
+
+  if (error) {
+    console.log("Error in liking review: ", error);
+    throw new Error ( "Failed to like/unlike review." );
+    // return { error: "Failed to like/unlike review.", message: error.message }
+  }
+
+  return { likeCount: data.likeCount, selfLikeStatus: data.selfLikeStatus };
+}
+
+export async function fetchLikeCountAndStatus (reviewId: string) {
+  const supabase = createClient();
+  const { data: { user } } = await (await supabase).auth.getUser();
+
+  const { count, error } = await (await supabase)
+    .from('review_votes')
+    .select('id', { count: 'exact', head: true }) // head: true = don't return rows
+    .eq('review_id', reviewId)
+    .eq('is_helpful', true);
+
+  const { data: id, error: likeStatusError } = 
+    !user
+      ? { data: [], error: null }
+      : await (await supabase)
+        .from('review_votes')
+        .select('id')
+        .eq('review_id', reviewId)
+        .eq('user_id', user?.id);
+
+  if (error) {
+    console.log("Error in fetching like count: ", error);
+    throw new Error("Error in fetching like count");
+  }
+
+  if (likeStatusError) {
+    console.log("Error in fetching like status: ", error);
+    throw new Error("Error in fetching like status");
+  }
+
+  return { count: count ?? 0, likeStatus: !!id.length };
+}

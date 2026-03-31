@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Rating from "../../Rating";
 import ShadowWrapper from "../../ShadowWrapper"
 import { Check, Minus, ThumbsUp, X } from "lucide-react";
+import ReviewLikeButton from "@/components/ReviewLikeButton/ReviewLikeButton";
 
 interface ReviewCardProps {
   name: string;
@@ -17,6 +18,7 @@ interface ReviewCardProps {
   comment: string;
   recommend: boolean;
   like_count: number;
+  review_id: string;
 }
 
 const parseStatusToClassName = (status: string) => {
@@ -90,7 +92,8 @@ const ReviewCard = ({
   value_rating,
   comment,
   recommend,
-  like_count,
+  // like_count,
+  review_id,
 } : ReviewCardProps ) => {
 
   const reviewsMapping = [
@@ -152,10 +155,7 @@ const ReviewCard = ({
         <RecommendedTag recommend={recommend} />
 
         {/* Likes count */}
-        <div className="flex items-center gap-1">
-          <ThumbsUp className="size-4" />
-          <span>{like_count}</span>
-        </div>
+        <ReviewLikeButton review_id={review_id} />
       </div>
     </ShadowWrapper>
   )

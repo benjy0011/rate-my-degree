@@ -16,6 +16,8 @@ import ShadowWrapper from "../ShadowWrapper"
 import { createReview, UpdateReviewPayload } from "@/app/actions/review"
 import { toast } from "sonner"
 import { useAuth } from "@/hooks/useAuth"
+import { LOCAL_STORAGE_KEY } from "@/constants"
+import { useRouter } from "next/navigation"
 
 interface AddReviewDialogProps {
 
@@ -27,6 +29,7 @@ const AddReviewDialog = ({
   children,
   userId,
 } : AddReviewDialogProps ) => {
+  const router = useRouter();
   const { user: currentUser } = useAuth();
 
   const plainUserDegree: UpdateReviewPayload = useMemo(() => ({
@@ -64,6 +67,7 @@ const AddReviewDialog = ({
   const [ errorFields, setErrorFields ] = useState<string>("");
   const yearError = 
     (newUserDegree?.graduation_year ?? 0) < 1000
+    || (newUserDegree?.graduation_year ?? 0) > 9999
 
   const addToErrors = (errorKey: keyof UpdateReviewPayload) => {
     if (errors.includes(errorKey)) {
@@ -163,6 +167,11 @@ const AddReviewDialog = ({
     }
 
     handleCloseModal();
+    
+    const rydUsername = localStorage.getItem(LOCAL_STORAGE_KEY.ryd_username);
+    if (rydUsername) {
+      router.push(`/profile/${rydUsername}`);
+    }
   }
 
 
