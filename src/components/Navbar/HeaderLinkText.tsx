@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export interface HeaderLinkTextProps {
   text: string,
@@ -13,11 +14,11 @@ const HeaderLinkText = (props : HeaderLinkTextProps) => {
     classname = "",
   } = props;
 
-  const Component = href ? "a" : "div";
+  const Component = href ? Link : "div";
 
   return (
     <Component
-      href={href}
+      href={`/${href}`}
       className={cn(href && "header-link-text", classname)}
     >
       {text}

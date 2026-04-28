@@ -8,6 +8,8 @@ import { CalendarDays, Mars, Venus } from "lucide-react";
 import { notFound } from "next/navigation";
 import { ProfileComponentProps } from "@/types/global";
 import { DOT_SMALL_DIVIDER } from "@/constants";
+import EditProfileDialog from "../EditProfileDialog/EditProfileDialog";
+import ShadowWrapper from "@/components/ShadowWrapper";
 
 const ProfileHeader = async ({
   username,
@@ -130,7 +132,15 @@ const ProfileHeader = async ({
       <div
         className={cn(!isCurrentUser && "invisible")}
       >
-        <EditProfileButton />
+        <EditProfileDialog>
+          <ShadowWrapper
+            className="font-ubuntu rounded-md bg-white text-black py-1.5 px-5"
+            wrapperClassName="rounded-md"
+            shadowDepth={0.5}
+          >
+            Edit Profile
+          </ShadowWrapper>
+        </EditProfileDialog>
       </div>
     </ServerShadowWrapper>
   )
