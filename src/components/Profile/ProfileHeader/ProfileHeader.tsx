@@ -15,6 +15,7 @@ const ProfileHeader = async ({
   username,
   isCurrentUser,
 } : ProfileComponentProps) => {
+  console.log("TTTT: ", isCurrentUser)
   const supabase = createClient();
 
   const { data: userData, error } = await (await supabase)
@@ -130,7 +131,7 @@ const ProfileHeader = async ({
       </div>
 
       <div
-        className={cn(!isCurrentUser && "invisible")}
+        className={cn(!isCurrentUser && "invisible", "relative z-10")}
       >
         <EditProfileDialog>
           <ShadowWrapper

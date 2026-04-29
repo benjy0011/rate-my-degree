@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/context/auth/AuthProvider";
+import Providers from "./providers/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,16 +47,18 @@ export default function RootLayout({
       <body
         className={`${playpenSans.variable} ${fredoka.variable} ${ubuntu.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
-        <Toaster
-          closeButton
-          richColors
-          theme="light"
-          className="pointer-events-auto"
-          position="top-center"
-        />
+        <Providers>
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
+          <Toaster
+            closeButton
+            richColors
+            theme="light"
+            className="pointer-events-auto"
+            position="top-center"
+          />
+        </Providers>
       </body>
     </html>
   );

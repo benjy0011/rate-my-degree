@@ -62,7 +62,7 @@ const ShadowWrapper = ({
   return (
     <div
       {...rest}
-      onClick={onClick}
+      onClick={!isLoadingOrDisabled ? onClick : undefined}
       onMouseDown={handleSetActive}
       onMouseUp={handleSetInactive}
       onMouseLeave={handleSetInactive}
@@ -87,7 +87,7 @@ const ShadowWrapper = ({
         style={{
           cursor: onClick ? "pointer" : "default",
           pointerEvents: isLoadingOrDisabled ? "none" : "auto",
-          transform: isActive
+          transform: isActive && !isLoadingOrDisabled
             ? "translate(0, 0)"
             : `translate(-${calculatePx(shadowDepth)}, -${calculatePx(shadowDepth)} )`
         }}

@@ -54,7 +54,9 @@ export async function updateCurrentUserProfileData( { bio, is_male, username } :
   });
 
   if (error) {
-    return { error: "Update profile failed", message: error.message };
+    console.error(error)
+    throw new Error(error.message);
+    return { error: "Update profile failed", message: error?.message };
   }
 
   if (!isUsernameChanged) {

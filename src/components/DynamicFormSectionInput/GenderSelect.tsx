@@ -3,6 +3,7 @@ import { Mars, Venus } from "lucide-react"
 interface GenderSelectProps {
   isMale?: boolean;
   onGenderChange?: (isMale: boolean) => void;
+  error?: boolean;
 }
 
 
@@ -22,6 +23,7 @@ const genderSelectionsIcon = [
 const GenderSelect = ({
   isMale,
   onGenderChange,
+  error = false,
 } : GenderSelectProps ) => {
   return (
     <div className="flex gap-2">
@@ -35,6 +37,7 @@ const GenderSelect = ({
           }}
         />
       ))}
+      {error && <span className="text-red-600">*</span>}
     </div>
   )
 }
