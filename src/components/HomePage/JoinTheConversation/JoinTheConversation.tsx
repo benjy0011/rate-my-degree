@@ -10,8 +10,8 @@ const JoinTheConversation = async () => {
   const userId = user.user?.id || "";
 
   const WriteReviewButton = 
-    userId
-    ? (
+    // userId
+    // ? (
       <AddReviewDialog
         userId={userId}
       >
@@ -21,13 +21,13 @@ const JoinTheConversation = async () => {
           Write a Review
         </ShadowWrapper>
       </AddReviewDialog>
-    ) : (
-      <SignInButton
-        text="Write a Review"
-        className="bg-yellow-300 h-full px-6 py-3 text-black"
-        wrapperClassName="bg-gray-700"
-      />
-    )
+    // ) : (
+    //   <SignInButton
+    //     text="Write a Review"
+    //     className="bg-yellow-300 h-full px-6 py-3 text-black"
+    //     wrapperClassName="bg-gray-700"
+    //   />
+    // )
 
   return (
     <section id="join-the-conversation" className="join-the-conversation">

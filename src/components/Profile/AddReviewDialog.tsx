@@ -18,6 +18,7 @@ import { toast } from "sonner"
 import { useAuth } from "@/hooks/useAuth"
 import { LOCAL_STORAGE_KEY } from "@/constants"
 import { useRouter } from "next/navigation"
+import useLogin from "@/hooks/useLogin"
 
 interface AddReviewDialogProps {
 
@@ -31,6 +32,7 @@ const AddReviewDialog = ({
 } : AddReviewDialogProps ) => {
   const router = useRouter();
   const { user: currentUser } = useAuth();
+  const { handleSignIn, user } = useLogin();
 
   const plainUserDegree: UpdateReviewPayload = useMemo(() => ({
     id: "",
@@ -179,6 +181,11 @@ const AddReviewDialog = ({
     <Dialog
       open={open}
       onOpenChange={(v) => {
+        if (!!v && !user?.data.user?.id) {
+          handleSignIn();
+          return;
+        }
+
         setOpen(v);
         if (!v) clearOut();
       }}
