@@ -2,7 +2,7 @@
 
 import { createClient } from "@/lib/supabase/client"
 import ShadowWrapper from "../ShadowWrapper";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -12,7 +12,7 @@ export default function SignInButton({
   wrapperClassName = "",
 } : { text?: string, className?: string, wrapperClassName?: string }) {
 
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
   const [ currentUserSignedIn, setCurrentUserSignedIn ] = useState<boolean>(false);
 
   const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false);
@@ -48,7 +48,7 @@ export default function SignInButton({
     });
 
     getUser();
-  });
+  }, []);
 
   return (
     <ShadowWrapper
