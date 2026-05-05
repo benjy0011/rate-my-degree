@@ -12,6 +12,14 @@ interface UpdateReviewSchema {
   username: string;
 }
 
+interface ProfileProgressType {
+  bio_done: boolean;
+  degree_review_done: boolean;
+  gender_done: boolean;
+  progress: number;
+  progress_goal: number;
+}
+
 export async function fetchCurrentUserProfileData() {
   const supabase = createClient();
   const { data: userData, error: userError } = (await (await supabase).auth.getUser());
@@ -28,6 +36,24 @@ export async function fetchCurrentUserProfileData() {
 
   if (error) throw error;
   return data;
+}
+
+export async function fetchCurrentUserProfileProgress() {
+  const supabase = createClient();
+  const { data: userData, error: userError } = (await (await supabase).auth.getUser());
+
+  if (userError) throw userError;
+
+  if (!userData.user) return null;
+
+  const { data, error } = await (await supabase).rpc('get_user_profile_progress_v1');
+
+  if (error) {
+    console.error(error)
+    throw new Error(error.message);
+  }
+
+  return data as ProfileProgressType;
 }
 
 

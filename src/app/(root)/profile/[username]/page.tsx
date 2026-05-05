@@ -3,7 +3,7 @@ import About from "@/components/Profile/About/About";
 import AddReviewDialog from "@/components/Profile/AddReviewDialog";
 import DegreeReviews from "@/components/Profile/DegreeReviews/DegreeReviews";
 import ProfileHeader from "@/components/Profile/ProfileHeader/ProfileHeader";
-import ServerShadowWrapper from "@/components/Profile/ServerShadowWrapper";
+import ProfileProgress from "@/components/Profile/ProfileProgress/ProfileProgress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { createClient } from "@/lib/supabase/server";
 import { Metadata } from "next";
@@ -123,9 +123,11 @@ const Page = async ({
         </div>
 
         <div className="flex-1">
-          <ServerShadowWrapper>
-            Right
-          </ServerShadowWrapper>
+          <Suspense fallback={<Skeleton className="w-full h-44 bg-gray-300" />}>
+            <ProfileProgress
+              userId={profile.id}
+            />
+          </Suspense>
         </div>
       </div>
 
