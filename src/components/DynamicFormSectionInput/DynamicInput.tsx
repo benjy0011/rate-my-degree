@@ -11,15 +11,13 @@ const DynamicInput = ({
   ...props
 } : DynamicInputProps ) => {
   return (
-    <div>
-      <Input
-        className={cn(
-          "shadow-div-effect-sm",
-          error && "shadow-div-effect-sm-error"
-        )}
-        {...props}
-      />
-    </div>
+    <Input
+      className={cn(
+        "shadow-div-effect-sm",
+        error && "shadow-div-effect-sm-error"
+      )}
+      {...props}
+    />
   )
 }
 export default DynamicInput

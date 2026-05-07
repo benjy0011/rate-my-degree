@@ -1,8 +1,13 @@
+'use client'
+
 import { Search } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const SearchIcon = () => {
+  const router = useRouter();
+
   return (
-    <div className="header-search group">
+    <div className="header-search group" onClick={() => router.push('/degrees')}>
       <div className="header-search-wrapper">
         <div className="group-hover:rotate-20 header-search-icon">
           <Search />

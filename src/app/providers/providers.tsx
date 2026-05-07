@@ -2,6 +2,7 @@
 
 import { ReactNode, useState } from "react"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 const Providers = ({ children } : { children: ReactNode } ) => {
   // ✅ ensures client is not recreated every render
@@ -10,7 +11,9 @@ const Providers = ({ children } : { children: ReactNode } ) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <NuqsAdapter>
+        {children}
+      </NuqsAdapter>   
     </QueryClientProvider>
   )
 }

@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/server"
 import TopRatedDegreeCard from "./TopRatedDegreeCard";
 
 export const TOP_RATED_DEGREE_COUNT = 2;
@@ -6,7 +6,7 @@ export const TOP_RATED_DEGREE_COUNT = 2;
 const TopRatedDegreeCards = async () => {
   const supabase = createClient();
 
-  const degrees = await supabase
+  const degrees = await (await supabase)
     .from("degrees")
     .select(`
       id,

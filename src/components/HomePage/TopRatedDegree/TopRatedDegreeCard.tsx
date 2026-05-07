@@ -6,12 +6,12 @@ interface TopRatedDegreeCardProps {
   university: string
   degree_level: 'Bachelor' | 'Master' | string
   description: string
-  overall_rating: 0 | 1 | 2 | 3 | 4 | 5
-  curriculum_rating: 0 | 1 | 2 | 3 | 4 | 5
-  career_rating: 0 | 1 | 2 | 3 | 4 | 5
-  lecturer_rating: 0 | 1 | 2 | 3 | 4 | 5
-  facilities_rating: 0 | 1 | 2 | 3 | 4 | 5
-  value_rating: 0 | 1 | 2 | 3 | 4 | 5
+  overall_rating: number
+  curriculum_rating: number
+  career_rating: number
+  lecturer_rating: number
+  facilities_rating: number
+  value_rating: number
   review_count: number
   view_count: number
   duration: number

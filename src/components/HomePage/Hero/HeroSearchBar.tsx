@@ -4,10 +4,12 @@ import { Search } from "lucide-react"
 import ShadowWrapper from "../../ShadowWrapper"
 import { cn } from "@/lib/utils"
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const HeroSearchBar = ({
   className = ""
 } : { className?: string }) => {
+  const router = useRouter();
   const [searchText, setSearchText] = useState<string>("");
 
   return (
@@ -21,7 +23,7 @@ const HeroSearchBar = ({
       <ShadowWrapper
         className="px-8 py-2"
         wrapperClassName="ml-2"
-        onClick={() => console.log(searchText)}
+        onClick={() => router.push(`/degrees?search=${searchText}`)}
       >
         Search
       </ShadowWrapper>
