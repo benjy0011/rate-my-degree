@@ -68,11 +68,19 @@ const SORT_OPTIONS: SortOption[] = [
 
 // parsers for each filter — nuqs needs to know how to serialize/deserialize
 const filterParsers = {
-  search:      parseAsString.withDefault(""),
-  level:       parseAsJson<Levels>().withDefault(LEVELS[0]),
-  duration:    parseAsJson<Duration>().withDefault(DURATIONS[0]),
-  universityId: parseAsJson<University>().withDefault({ id: "", name: "All Universities" }),
-  sort:        parseAsJson<SortOption>().withDefault(SORT_OPTIONS[0]),
+  search: parseAsString.withDefault(""),
+
+  level: parseAsJson<Levels>((v) => v as Levels)
+    .withDefault(LEVELS[0]),
+
+  duration: parseAsJson<Duration>((v) => v as Duration)
+    .withDefault(DURATIONS[0]),
+
+  universityId: parseAsJson<University>((v) => v as University)
+    .withDefault({ id: "", name: "All Universities" }),
+
+  sort: parseAsJson<SortOption>((v) => v as SortOption)
+    .withDefault(SORT_OPTIONS[0]),
 }
 
 const DegreesClient = ({
