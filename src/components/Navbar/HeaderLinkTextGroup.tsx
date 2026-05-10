@@ -15,7 +15,7 @@ const LINKS: HeaderLinkTextProps[] = [
   },
   {
     text: "Categories",
-    href: "reviews",
+    href: "categories",
   },
 ]
 
