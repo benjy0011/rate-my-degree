@@ -210,7 +210,7 @@ const AddReviewDialog = ({
         </DialogHeader>
 
         <div className="py-2 px-4 flex flex-col gap-6 max-h-[70vh] overflow-auto">
-          <FormSectionWrapper title="SELECT DEGREE">
+          <FormSectionWrapper title="SELECT DEGREE" contactUs>
             <DegreeCombobox
               value={selectedDegree}
               onValueChange={(v) => {
