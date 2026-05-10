@@ -1,5 +1,6 @@
 
 import About from "@/components/Profile/About/About";
+import AddReviewButton from "@/components/Profile/AddReviewButton";
 import AddReviewDialog from "@/components/Profile/AddReviewDialog";
 import DegreeReviews from "@/components/Profile/DegreeReviews/DegreeReviews";
 import ProfileHeader from "@/components/Profile/ProfileHeader/ProfileHeader";
@@ -103,7 +104,7 @@ const Page = async ({
               {isMyProfile ? "My" : profile.full_name} Degree Review
             </h5>
 
-            {!!user && user?.id === profile?.id &&
+            {/* {!!user && user?.id === profile?.id &&
               <AddReviewDialog
                 userId={profile.id}
               >
@@ -113,7 +114,12 @@ const Page = async ({
                   Add Review
                 </p>
               </AddReviewDialog>
-            }
+            } */}
+
+            <AddReviewButton
+              user={user}
+              userId={profile?.id}
+            />
           </div>
           
 
