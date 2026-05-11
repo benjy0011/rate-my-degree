@@ -19,8 +19,8 @@ const FormSectionWrapper = ({
 }) => (
   <div className={cn("flex flex-col gap-2", className)}>
     { title &&
-      <div className="flex items-center justify-between">
-        <p className={cn("text-[12px] font-medium text-gray-900 tracking-wide", titleClassName)}>{title}</p>
+      <div className="flex items-center justify-between flex-1">
+        <p className={cn("text-[12px] font-medium text-gray-900 tracking-wide self-start", titleClassName)}>{title}</p>
         {contactUs &&
           <a
             className="text-xs text-primary hover:cursor-pointer hover:underline"
