@@ -4,16 +4,32 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import AddReviewDialog from "../AddReviewDialog";
 import EditProfileDialog from "../EditProfileDialog/EditProfileDialog";
+import SignInButton from "@/components/Navbar/SignInButton";
 
 interface ProfileProgressProps {
   userId: string;
 }
 
 
+const HaventLogin = () => (
+  <ServerShadowWrapper
+      className="bg-yellow-300 p-4 font-ubuntu gap-6 flex flex-col items-center"
+      shadowSize="small"
+    >
+      <h4 className="h6 text-center">Unlock Full Features</h4>
+      <SignInButton text="Sign Up Now" className="bg-gray-500" />
+  </ServerShadowWrapper>
+)
+
+
 const ProfileProgress = async ({
   userId
 } : ProfileProgressProps ) => {
   const data = await fetchCurrentUserProfileProgress();
+
+  if (!data) return (
+    <HaventLogin />
+  )
 
   const progress = (data?.progress ?? 0) * 100;
   const progressPercentage = `${Math.round(progress)}%`;

@@ -148,8 +148,8 @@ const DegreesClient = ({
   }
 
   return (
-    <div className="flex flex-col items-center w-7xl py-8 px-2 gap-10">
-      <ShadowWrapper className="bg-secondary text-black w-full flex flex-col p-4 gap-8" wrapperClassName="w-full">
+    <div className="flex flex-col items-center md:w-[85%] py-8 px-2 gap-10">
+      <ShadowWrapper className="bg-secondary text-black md:w-full flex flex-col p-4 gap-8" wrapperClassName="md:w-full">
         <div className="flex w-full gap-2 items-center">
           <Search />
           <DynamicInput
@@ -160,7 +160,7 @@ const DegreesClient = ({
           />
         </div>
 
-        <div className="flex w-full gap-4">
+        <div className="flex w-full gap-4 max-md:flex-col">
           <DynamicSelect
             selections={LEVELS}
             value={filters.level}
@@ -194,7 +194,7 @@ const DegreesClient = ({
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="w-full flex flex-wrap gap-15 justify-center p-5">
+        <div className="md:w-full flex flex-wrap gap-15 justify-center p-5">
           {degrees.map((degree) => (
             <TopRatedDegreeCard
               key={degree.id}

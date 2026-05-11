@@ -42,7 +42,7 @@ export async function fetchCurrentUserProfileProgress() {
   const supabase = createClient();
   const { data: userData, error: userError } = (await (await supabase).auth.getUser());
 
-  if (userError) throw userError;
+  if (userError) return null;
 
   if (!userData.user) return null;
 

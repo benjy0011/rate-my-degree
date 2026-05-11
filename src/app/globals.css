@@ -299,7 +299,7 @@
   }
 
   .hero {
-    @apply w-full h-dvh -mt-(--navbar-height) flex items-center justify-center min-h-fit max-lg:pb-10 max-lg:pt-[calc(var(--navbar-height)+15px)]
+    @apply w-full min-h-dvh -mt-(--navbar-height) flex items-center justify-center max-lg:pb-10 max-lg:pt-[calc(var(--navbar-height)+15px)]
   }
 
   .hero-left {
@@ -331,7 +331,7 @@
   }
 
   .intro {
-    @apply w-full bg-white border-y-2 border-black h-dvh min-h-fit py-10
+    @apply w-full bg-white border-y-2 border-black min-h-dvh py-10
   }
 
   .intro-wrapper {
@@ -383,7 +383,7 @@
   }
 
   .categories{
-    @apply bg-custom-light-gray flex flex-col justify-center items-center min-h-fit h-dvh w-full
+    @apply bg-custom-light-gray flex flex-col justify-center items-center min-h-dvh w-full
   }
 
   .categories-wrapper {
@@ -391,7 +391,7 @@
   }
 
   .top-rated-degree {
-    @apply h-dvh min-h-fit border-y-2 border-black flex items-center justify-center w-full
+    @apply min-h-dvh border-y-2 border-black flex items-center justify-center w-full
   }
 
   .top-rated-degree-card,
@@ -429,7 +429,7 @@
   }
 
   .recent-reviews {
-    @apply bg-custom-light-gray flex flex-col justify-center items-center min-h-fit h-dvh w-full
+    @apply bg-custom-light-gray flex flex-col justify-center items-center min-h-dvh w-full
   }
 
   .recent-reviews-wrapper {
@@ -493,7 +493,7 @@
   }
 
   .profile-header-upper {
-    @apply border-b-2 border-dashed border-gray-400 flex flex-col gap-4 pb-6
+    @apply border-b-2 border-dashed border-gray-400 flex flex-col gap-4 pb-6 max-md:z-2
   }
 
   .profile-header-lower {

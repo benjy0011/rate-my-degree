@@ -130,7 +130,7 @@ const ProfileHeader = async ({
       </div>
 
       <div
-        className={cn(!isCurrentUser && "invisible", "relative z-10")}
+        className={cn(!isCurrentUser && "hidden", "relative z-10")}
       >
         <EditProfileDialog>
           <ShadowWrapper

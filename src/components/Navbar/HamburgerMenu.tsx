@@ -9,6 +9,7 @@ import useScreenSize from "@/hooks/useScreenSize"
 import { memo, useEffect, useState } from "react"
 import SignInButton from "./SignInButton"
 import AvatarButton, { AvatarButtonProps } from "./AvatarButton"
+import { usePathname } from "next/navigation"
 
 interface HamburgerMenuProps extends AvatarButtonProps {
   loggedIn?: boolean,
@@ -18,7 +19,8 @@ const HamburgerMenu = ({
   loggedIn = false,
   ...res
 } : HamburgerMenuProps) => {
-  // const { isLargeScreen } = useScreenSize();
+  // const { isLargeScreen, isMediumScreen } = useScreenSize();
+  const pathname = usePathname();
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -29,6 +31,11 @@ const HamburgerMenu = ({
   //     }, 0)
   //   }
   // }, [isLargeScreen, open])
+
+  // Close drawer on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <Drawer open={open} onOpenChange={setOpen} direction="right">

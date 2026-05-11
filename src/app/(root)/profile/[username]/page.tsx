@@ -94,7 +94,7 @@ const Page = async ({
 
 
       {/* Main Section */}
-      <div className="flex gap-8">
+      <div className="flex gap-8 max-md:flex-col">
         {/* Left */}
         <div className="flex-2 flex flex-col gap-6">
 
