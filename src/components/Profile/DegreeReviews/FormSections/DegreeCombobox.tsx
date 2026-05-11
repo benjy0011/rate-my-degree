@@ -31,7 +31,9 @@ const DegreeCombobox = <T,>({
       // itemToStringValue={(selection) => selection?.name }
     >
       <ComboboxInput className="rounded-[5px]" placeholder="Select a selection" />
-      <ComboboxContent onWheel={(e) => e.stopPropagation()}>
+      <ComboboxContent 
+        // onWheel={(e) => e.stopPropagation()}
+      >
         <ComboboxEmpty>
           {loading
             ? <Spinner />
