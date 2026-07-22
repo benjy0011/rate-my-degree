@@ -331,7 +331,7 @@
   }
 
   .intro {
-    @apply w-full bg-white border-y-2 border-black min-h-dvh py-10
+    @apply w-full bg-white border-y-2 border-black min-h-dvh py-10 flex items-center
   }
 
   .intro-wrapper {
